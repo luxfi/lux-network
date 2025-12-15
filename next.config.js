@@ -48,11 +48,11 @@ const nextConfig = {
   productionBrowserSourceMaps: true,
   webpack: (config, options) => {
     config = svgrWebpackConfig(config, options)
-    // Stub out server action files
-    config.resolve.alias = {
-      ...config.resolve.alias,
-      'server-only': false,
-    }
+    // Stub out server action files for static export
+    config.module.rules.push({
+      test: /[\\/](square-payment|promo-codes)\.ts$/,
+      use: 'null-loader',
+    })
     return config
   }
 }
