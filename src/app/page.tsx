@@ -6,27 +6,18 @@ import ClientScreenful from '@/components/ClientScreenful'
 import { tiles } from '@/content'
 import siteDef from '@/site-def'
 
-type Props = {
-  searchParams?: Promise<{ [key: string]: string | string[] | undefined }>
-}
-
   // Scroll Snap using this is the approach:
   // https://stackoverflow.com/a/76066443/11645689
   // see also styles on 'html' in @hanzo/ui/style/global.css
-const Page = async ({ searchParams }: Props ) => {
-  const searchParamsData = await searchParams
-
-  // see src/middleware.ts
-  const agent = searchParamsData?.agent as string
-
+const Page = () => {
   return (<>
     <Header siteDef={siteDef} />
     {tiles.map((banner, index) => (
       <ClientScreenful
         block={banner}
         initialInView={index === 0}
-        agent={agent}
         index={index}
+        key={`section-${index}`}
       />
     ))}
     <Footer siteDef={siteDef} className='w-full pt-16 lg:mx-auto ' />
