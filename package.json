@@ -16,7 +16,6 @@
   "dependencies": {
     "@luxfi/ui": "5.5.2",
     "@luxfi/data": "1.1.1",
-    "@hanzo/auth": "2.5.5",
     "@hanzo/commerce": "7.3.8",
     "@hanzo/ui": "5.3.22",
     "@next/mdx": "15.1.6",
