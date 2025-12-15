@@ -1,51 +1,21 @@
-import React  from 'react'
-import { notFound } from 'next/navigation'
+import dynamic from 'next/dynamic'
 
-import { Footer, Header, Main } from '@luxfi/ui'
-import type ProductDetailBlock from '@/blocks/def/product-detail-block'
-import ProductDetailBlockComponent from '@/blocks/components/product-detail-block'
-import { products } from '@/content'
-
-import siteDef from '@/site-def'
-
-type Props = {
-  params: Promise<{ slug: 'coin' | 'validator' }>
-}
+// Dynamic import to avoid RSC function serialization issues
+const ProductPageClient = dynamic(() => import('./client-page'), { ssr: false })
 
 export async function generateStaticParams() {
-  const products = [
-    'coin',
-    'validator',
+  return [
+    { slug: 'coin' },
+    { slug: 'validator' },
   ]
-
-  return products.map((p) => ({
-    slug: p,
-  }))
 }
 
-export async function generateMetadata({ params}: Props) {
+export async function generateMetadata({ params }: { params: Promise<{ slug: string }> }) {
   const { slug } = await params
   const capitalized = slug.charAt(0).toUpperCase() + slug.slice(1)
   return { title: capitalized }
 }
 
-const ProductPage = async ({ params }: Props) => {
-  const { slug } = await params
-
-  const product = products[slug] as ProductDetailBlock
-
-  if (!product) {
-    notFound()
-  }
-
-  return (<>
-    <Header siteDef={siteDef}/>
-    <Main className='md:flex-row md:gap-4 '>
-      <ProductDetailBlockComponent block={product} />
-    </Main>
-    <div className='border-t'></div>
-    <Footer siteDef={siteDef} className='w-full pt-16 lg:mx-auto ' />
-  </>)
+export default function ProductPage() {
+  return <ProductPageClient />
 }
-
-export default ProductPage
