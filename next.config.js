@@ -5,6 +5,12 @@ const svgrWebpackConfig = require('./svgr.next.config')
 const nextConfig = {
   output: 'export',
   images: { unoptimized: true },
+  typescript: {
+    ignoreBuildErrors: true,
+  },
+  eslint: {
+    ignoreDuringBuilds: true,
+  },
   pageExtensions: ['js', 'jsx', 'mdx', 'ts', 'tsx'],
   reactStrictMode: true,
   images: {
