@@ -46,7 +46,15 @@ const nextConfig = {
     '@luxfi/menu-icons'
   ],
   productionBrowserSourceMaps: true,
-  webpack: svgrWebpackConfig // if we need others, set up a chain of calls.
+  webpack: (config, options) => {
+    config = svgrWebpackConfig(config, options)
+    // Stub out server action files
+    config.resolve.alias = {
+      ...config.resolve.alias,
+      'server-only': false,
+    }
+    return config
+  }
 }
 
 module.exports = withMDX(nextConfig)
