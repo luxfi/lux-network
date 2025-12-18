@@ -14,11 +14,11 @@
     "test:e2e:debug": "playwright test --debug"
   },
   "dependencies": {
+    "@luxfi/ui": "5.5.2",
+    "@luxfi/data": "1.1.1",
     "@hanzo/auth": "2.5.5",
     "@hanzo/commerce": "7.3.8",
     "@hanzo/ui": "5.3.22",
-    "@luxfi/data": "1.1.1",
-    "@luxfi/ui": "5.5.2",
     "@next/mdx": "15.1.6",
     "@splinetool/react-spline": "^4.0.0",
     "@splinetool/runtime": "^1.10.8",
@@ -44,7 +44,6 @@
     "@types/react-dom": "18.3.2",
     "autoprefixer": "^10.4.20",
     "http-server": "^14.1.1",
-    "null-loader": "^4.0.1",
     "postcss": "^8.4.49",
     "postcss-import": "^16.1.0",
     "tailwindcss": "3.4.17",

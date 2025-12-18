@@ -1,21 +1,55 @@
-import dynamic from 'next/dynamic'
+import React  from 'react'
+import { notFound } from 'next/navigation'
 
-// Dynamic import to avoid RSC function serialization issues
-const ProductPageClient = dynamic(() => import('./client-page'), { ssr: false })
+import { Footer, Header, Main } from '@luxfi/ui'
+import type ProductDetailBlock from '@/blocks/def/product-detail-block'
+import ProductDetailBlockComponent from '@/blocks/components/product-detail-block'
+import { products } from '@/content'
 
-export async function generateStaticParams() {
-  return [
-    { slug: 'coin' },
-    { slug: 'validator' },
-  ]
+import siteDef from '@/site-def'
+
+type Props = {
+  params: { slug: 'coin' | 'validator' }
+  searchParams?: { [key: string]: string | string[] | undefined }
 }
 
-export async function generateMetadata({ params }: { params: Promise<{ slug: string }> }) {
-  const { slug } = await params
-  const capitalized = slug.charAt(0).toUpperCase() + slug.slice(1)
+export async function generateStaticParams() {
+
+  const products = [
+    'coin',
+    'validator',
+  ]
+ 
+  return products.map((p) => ({
+    slug: p,
+  }))
+}
+
+export async function generateMetadata({ params}: Props) {
+  const title = params.slug
+  const capitalized = title.charAt(0).toUpperCase() + title.slice(1)
   return { title: capitalized }
 }
 
-export default function ProductPage() {
-  return <ProductPageClient />
+const ProductPage = ({ params, searchParams }: Props) => {
+
+  const product = products[params.slug] as ProductDetailBlock
+  
+  if (!product) {
+    notFound()
+  }
+
+  // see src/middleware.ts
+  const agent = searchParams?.agent
+
+  return (<>
+    <Header siteDef={siteDef}/>
+    <Main className='md:flex-row md:gap-4 '>
+      <ProductDetailBlockComponent block={product} agent={agent as string}/>
+    </Main>
+    <div className='border-t'></div>
+    <Footer siteDef={siteDef} className='w-full pt-16 lg:mx-auto ' />
+  </>)
 }
+
+export default ProductPage

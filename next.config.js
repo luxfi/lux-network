@@ -3,19 +3,6 @@ const svgrWebpackConfig = require('./svgr.next.config')
 
 /** @type {import('next').NextConfig} */
 const nextConfig = {
-  output: 'export',
-  images: { unoptimized: true },
-  typescript: {
-    ignoreBuildErrors: true,
-  },
-  eslint: {
-    ignoreDuringBuilds: true,
-  },
-  experimental: {
-    serverActions: {
-      allowedOrigins: [],
-    },
-  },
   pageExtensions: ['js', 'jsx', 'mdx', 'ts', 'tsx'],
   reactStrictMode: true,
   images: {
@@ -42,19 +29,10 @@ const nextConfig = {
     '@hanzo/auth',
     '@hanzo/commerce',
     '@luxfi/ui',
-    '@luxfi/data',
-    '@luxfi/menu-icons'
+    '@luxfi/data'
   ],
   productionBrowserSourceMaps: true,
-  webpack: (config, options) => {
-    config = svgrWebpackConfig(config, options)
-    // Stub out server action files for static export
-    config.module.rules.push({
-      test: /[\\/](square-payment|promo-codes)\.ts$/,
-      use: 'null-loader',
-    })
-    return config
-  }
+  webpack: svgrWebpackConfig // if we need others, set up a chain of calls.
 }
 
 module.exports = withMDX(nextConfig)
