@@ -1,35 +1,16 @@
-import React  from 'react'
+import React from 'react'
 
-import { Footer, Header } from '@luxfi/ui'
-import ClientScreenful from '@/components/ClientScreenful'
-
-import { tiles } from '@/content'
-import siteDef from '@/site-def'
-
-type Props = {
-  searchParams?: { [key: string]: string | string[] | undefined }
+export default function Page() {
+  return (
+    <div className="flex flex-col items-center justify-center min-h-screen p-8">
+      <h1 className="text-4xl font-bold mb-4">LUX network</h1>
+      <p className="text-lg text-gray-400 mb-8">Coming soon</p>
+      <a 
+        href="https://lux.network" 
+        className="px-6 py-3 bg-white text-black rounded-lg hover:bg-gray-200 transition"
+      >
+        Learn More
+      </a>
+    </div>
+  )
 }
-
-  // Scroll Snap using this is the approach: 
-  // https://stackoverflow.com/a/76066443/11645689
-  // see also styles on 'html' in @hanzo/ui/style/global.css
-const Page = ({ searchParams }: Props ) => {
-  
-    // see src/middleware.ts
-  const agent = searchParams?.agent as string
-
-  return (<>
-    <Header siteDef={siteDef} />
-    {tiles.map((banner, index) => (
-      <ClientScreenful 
-        block={banner} 
-        initialInView={index === 0} 
-        agent={agent}
-        index={index}
-      />
-    ))}
-    <Footer siteDef={siteDef} className='w-full pt-16 lg:mx-auto ' />
-  </>)
-}
-
-export default Page
