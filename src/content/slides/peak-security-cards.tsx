@@ -6,15 +6,15 @@ import type {
 const underlineStrong = (text: string) => <strong className='border-b-2 border-secondary'>{text}</strong>
 
 const headlines = [
-  'BUILT SECURE',
-  'KEPT SECURE'
+  'POST-QUANTUM CRYPTOGRAPHY',
+  'THRESHOLD SECURITY'
 ]
 
 const bylines = [
-  <span>The Lux Network is engineered by a multi-disciplinary team of experts in {underlineStrong('cyber security')}, {underlineStrong('cryptography')}, {underlineStrong('white-hat hacking')}, {underlineStrong('open source software')}, {underlineStrong('game theory')}, {underlineStrong('mathematics')}, and {underlineStrong('network design')}.</span>,
-  'Automated monitoring of smart contracts and contract changes, token liquidity and price, secured funds, social media feeds, and more.',
-  'Continuous audits of smart contracts, project infrastructure, token economics and more.',
-  'Fuzzing and Penetration testing is conducted on contracts, platform infrastructure and more.'
+  <span>Lux implements {underlineStrong('NIST FIPS 203/204/205')} standards: {underlineStrong('ML-KEM')} for post-quantum key encapsulation, {underlineStrong('ML-DSA')} for lattice-based digital signatures, and {underlineStrong('SLH-DSA')} for stateless hash-based signatures. Q-Chain provides quantum-resistant consensus via {underlineStrong('Ringtail signatures')}.</span>,
+  'FROST threshold signatures enable distributed key generation and signing across validator sets.',
+  'T-Chain ThresholdVM powers fully homomorphic encryption (FHE) for confidential on-chain computation.',
+  'MPC custody with CGGMP21 threshold ECDSA and dynamic signer rotation via LSS protocol.'
 ]
 
 export default [

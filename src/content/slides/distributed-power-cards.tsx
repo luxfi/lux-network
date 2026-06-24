@@ -7,17 +7,17 @@ import type {
 const cardContent = (headline: string, byline: React.ReactNode) => <div><h5><span className='border-b-2 border-secondary'>{headline}</span></h5><p>{byline}</p></div>
 
 const headlines = [
-  'Join Lux DAO',
-  'DAO Portal Access',
-  'Submitting Proposals',
-  'Earning Voting Rights'
+  'Quasar Protocol',
+  'Wave Voting',
+  'Flare Finalization',
+  'Prism Geometry'
 ]
 
 const bylines = [
-  <span>Build with us by getting a Lux DAO membership, simply waitlist for <Link href='https://lux.market/product/pass'>Lux Pass</Link> on <Link href='https://lux.market/'>Lux Market</Link>.</span>,
-  'The DAO Portal gives members the ability to vote, stake LUX, participate in open governance, and more.',
-  'Anyone can submit proposal and grant applications in an open online forum for review and voting by DAO members.',
-  'Each vote is gained by bonding and staking 1:1 a LUX Coin and a LUMEN token, earned from positive network behaviors.'
+  'Main consensus protocol enabling sub-second finality with 4,500+ TPS per chain. Byzantine fault tolerant with optimal message complexity.',
+  'Efficient voting mechanism that samples validator subsets for rapid agreement. Focus confidence accumulation ensures high-confidence decisions.',
+  'DAG-based finalization protocol that orders transactions deterministically. Horizon finality provides provable irreversibility guarantees.',
+  'Geometric optimization of validator sampling for network-wide consensus. Enables efficient cross-chain coordination via Warp messaging.'
 ]
 
 export default [

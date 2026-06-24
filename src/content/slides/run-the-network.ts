@@ -16,6 +16,7 @@ export default {
   [
     {blockType: 'enh-heading',
       specifiers: 'center',
+      preheading: { text: 'NETWORK ID: 96369', level: 6, mb: 2 },
       heading: { text: 'RUN THE NETWORK', level: 1 },
     } as EnhHeadingBlock,
     {blockType: 'space', level: 0},

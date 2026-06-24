@@ -1,0 +1,45 @@
+# Lux Network
+
+> Post-quantum blockchain with 6 specialized chains, sub-second finality, and 15K+ TPS.
+
+## About
+Lux Network is a post-quantum secure blockchain platform featuring 6 specialized chains, each optimized for specific use cases. It achieves sub-second finality via the Quasar consensus protocol with throughput exceeding 15,000 transactions per second. Lux implements NIST-approved post-quantum cryptography (ML-KEM, ML-DSA, SLH-DSA) to ensure long-term security against quantum computing threats.
+
+## Chains
+- **A-Chain (Asset Chain)**: Asset issuance, tokenization, and management
+- **B-Chain (Bridge Chain)**: Cross-chain bridges and interoperability
+- **C-Chain (Contract Chain)**: Smart contracts and EVM compatibility
+- **D-Chain (Data Chain)**: On-chain data storage and indexing
+- **Y-Chain (Yield Chain)**: DeFi protocols, yield farming, and staking
+- **Z-Chain (Zero-Knowledge Chain)**: Privacy-preserving transactions with ZK proofs
+
+## Key Features
+- Sub-second finality via Quasar consensus
+- 15,000+ transactions per second
+- Post-quantum cryptography (ML-KEM, ML-DSA, SLH-DSA)
+- EVM-compatible smart contracts (C-Chain)
+- Cross-chain interoperability (B-Chain)
+- Zero-knowledge privacy (Z-Chain)
+- Native staking and DeFi (Y-Chain)
+- On-chain data availability (D-Chain)
+- Validator network with delegated staking
+- Multi-VM architecture supporting custom virtual machines
+
+## Links
+- [Website](https://lux.network)
+- [Documentation](https://docs.lux.network)
+- [Explorer](https://explore.lux.network)
+- [GitHub](https://github.com/luxfi)
+- [Wallet](https://wallet.lux.network)
+- [Bridge](https://bridge.lux.network)
+- [Faucet](https://faucet.lux.network)
+
+## API
+- C-Chain RPC: https://api.lux.network/ext/bc/C/rpc
+- REST API: https://api.lux.network
+- Docs: https://docs.lux.network/api
+
+## Contact
+- Support: support@lux.network
+- Twitter: @luxdefi
+- Discord: https://discord.gg/lux

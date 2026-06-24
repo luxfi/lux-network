@@ -14,42 +14,42 @@ export default {
       iconSize: 28,
       cards: [
         {
-          text: 'EVM compatibility and interoperability.',
-          icon: '/assets/content/icon-eth-475.png'
-        },
-        {
-          text: 'Scale to millions of transactions per second.',
-          icon: '/assets/content/icon-speed-475.png'
-        },
-        {
-          text: 'Wallet, Swap, Explore, Bridge, all in one place.',
+          text: 'Six specialized chains: P, X, C, D, T, Q with purpose-built VMs.',
           icon: '/assets/content/icon-apps-475.png'
         },
         {
-          text: 'All-new Native Fiat Currency support.',
-          icon: '/assets/content/icon-fiat-coins-475.png'
+          text: 'Sub-second finality with 4,500+ TPS per chain via Quasar consensus.',
+          icon: '/assets/content/icon-speed-475.png'
         },
         {
-          text: 'Breakthrough privacy chain and bridge.',
+          text: 'Full EVM compatibility on C-Chain with native smart contracts.',
+          icon: '/assets/content/icon-eth-475.png'
+        },
+        {
+          text: 'Post-quantum cryptography: ML-KEM, ML-DSA, SLH-DSA, FROST.',
           icon: '/assets/content/icon-security-shield-504.png'
         },
         {
-          text: 'Automated security with 24/7 monitoring.',
+          text: 'T-Chain FHE for confidential computing and threshold operations.',
           icon: '/assets/content/icon-24-7-security-475.png'
         },
         {
-          text: 'Regulatory compliant from day one.',
+          text: 'D-Chain DEX with native order book, perpetuals, and AMM.',
+          icon: '/assets/content/icon-fiat-coins-475.png'
+        },
+        {
+          text: 'ZAP transport protocol for zero-copy VM communication.',
+          icon: '/assets/content/icon-dao-475.png'
+        },
+        {
+          text: 'Warp cross-chain messaging with BLS aggregate signatures.',
           icon: '/assets/content/icon-regulatory-compliant-475.png'
         },
         {
-          text: 'Tax advantaged trading.',
-          icon: <p className='font-serif text-[24px] leading-[28px] font-bold  h-[28px] pr-2'>0%</p>
+          text: 'Network ID 96369 (Mainnet), 96368 (Testnet). Go 1.23.9+.',
+          icon: <p className='font-serif text-[24px] leading-[28px] font-bold h-[28px] pr-2'>ID</p>
         },
-        {
-          text: 'Governed by a DAO.',
-          icon: '/assets/content/icon-dao-475.png'
-        },
-      ] 
+      ]
     } as BulletCardsBlock
   ]]
 }

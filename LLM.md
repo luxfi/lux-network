@@ -1,7 +1,7 @@
-# lux-network
+# network
 
-**Org:** luxfi  ·  **Ecosystem:** lux  ·  **Path:** `/Users/a/work/lux/luxfi/lux-network`
-**Origin:** https://github.com/luxfi/lux-network.git
+**Org:** lux-apps  ·  **Ecosystem:** lux  ·  **Path:** `/Users/a/work/lux/lux-apps/network`
+**Origin:** https://github.com/lux-apps/network.git
 
 ## Discovery
 
@@ -16,4 +16,4 @@ This file (`CLAUDE.md`) is the canonical agent-facing readme; `LLM.md` is a syml
 
 ## Sibling repos
 
-See the org-level `LLM.md` at `/Users/a/work/lux/luxfi/LLM.md` for the full inventory of sibling repos and inter-repo dependencies.
+See the org-level `LLM.md` at `/Users/a/work/lux/lux-apps/LLM.md` for the full inventory of sibling repos and inter-repo dependencies.

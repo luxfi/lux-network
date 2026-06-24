@@ -1,14 +1,12 @@
 import { footer, mainNav, type SiteDef  } from '@luxfi/ui/site-def'
 
-import { commerceConfig as commerce }  from '@luxfi/data/commerce'
-
 export default {
   currentAs: 'https://lux.network',
   nav: {
     common: mainNav,
   },
-  footer: footer.standard, 
-  commerce,
+  footer: footer.standard,
+  noAuth: true,
   chatbot: {
     suggestedQuestions:[{
       heading: 'Lux network features', 

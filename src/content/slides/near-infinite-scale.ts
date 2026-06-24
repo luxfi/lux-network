@@ -1,14 +1,14 @@
-import type { 
-  GridBlock, 
+import type {
+  GridBlock,
   EnhHeadingBlock,
-  Block, 
+  Block,
 } from '@hanzo/ui/blocks'
 
 const bylines = [
-  'Deploying smart contracts on the Lux Proof of Stake Network is much more energy efficient compared to Proof of Work blockchains, which enables lower costs and increases scalability.',
-  'Thanks to the Lux Consensus, which uses sub-sample node voting, the Lux Network is one of the fastest smart contracts blockchains as measured by time-to-finality, making the Lux Network highly scalable.',
-  'The Lux Network scaling potential is unlimited thanks to Subnets, dynamic subsets of Lux Validators that work together to achieve consensus on an unlimited number of independently operating chains designed to handle the scale of global finance.',
-  'Directed Acyclic Graph or DAG-optimized, high-throughput, and parallelizable consensus enabling Lux Network to efficiently represent all Lux Chains and their relationship with one another for optimal transaction routing while also increasing security of each chain.',
+  'Quasar consensus enables sub-second finality with 4,500+ TPS per chain. Wave voting and Focus confidence accumulation ensure rapid agreement across validator sets.',
+  'Six specialized chains (P, X, C, D, T, Q) each run purpose-built VMs. DAG-optimized parallel processing enables efficient cross-chain transaction routing.',
+  'ZAP transport protocol provides zero-copy VM communication with 5-10x faster serialization than protobuf, 2-3x lower latency, and 30-50% CPU reduction.',
+  'Flare finalization and Horizon finality protocols ensure deterministic transaction ordering. Prism geometry optimizes validator sampling for network-wide consensus.',
 ]
 
 
@@ -16,11 +16,11 @@ export default {
   blockType: 'screenful',
   columnSpecifiers: ['center vert-center'],
   contentColumns: [[
-    {blockType: 'enh-heading', 
+    {blockType: 'enh-heading',
       icon: '/assets/content/icon-speed-475.png',
       iconSize: 40,
-      preheading: {text: 'HIGH PERFORMANCE', level: 5, mb: 2}, 
-      heading: {text: 'NEAR-INFINITE SCALE', level: 1}, 
+      preheading: {text: 'HIGH PERFORMANCE', level: 5, mb: 2},
+      heading: {text: 'NEAR-INFINITE SCALE', level: 1},
     } as EnhHeadingBlock,
     {blockType: 'space', level: 6},
     {blockType: 'grid',
@@ -31,22 +31,22 @@ export default {
       },
       cells: [
         {blockType: 'enh-heading',
-          heading: {text: '1/10th the cost of Ethereum transactions.', level: 4}, 
-          byline: {text: bylines[0], level: 6}, 
+          heading: {text: 'Sub-second finality, 4,500+ TPS per chain.', level: 4},
+          byline: {text: bylines[0], level: 6},
         } satisfies EnhHeadingBlock as Block,
         {blockType: 'enh-heading',
-          heading: {text: '<1 second transaction time-to-finality.', level: 4}, 
-          byline: {text: bylines[1], level: 6}, 
+          heading: {text: 'Six chains with specialized virtual machines.', level: 4},
+          byline: {text: bylines[1], level: 6},
         } satisfies EnhHeadingBlock as Block,
         {blockType: 'enh-heading',
-          heading: {text: 'Unlimited transaction throughput.', level: 4}, 
-          byline: {text: bylines[2], level: 6}, 
+          heading: {text: 'ZAP zero-copy transport protocol.', level: 4},
+          byline: {text: bylines[2], level: 6},
         } satisfies EnhHeadingBlock as Block,
         {blockType: 'enh-heading',
-          heading: {text: 'Fastest cross-chain transactions.', level: 4}, 
-          byline: {text: bylines[3], level: 6}, 
+          heading: {text: 'Deterministic finality with Flare and Horizon.', level: 4},
+          byline: {text: bylines[3], level: 6},
         } as EnhHeadingBlock,
-      ] 
+      ]
     } as GridBlock
   ]]
 }
