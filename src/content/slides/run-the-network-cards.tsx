@@ -33,8 +33,8 @@ const coinVideo = {
 } as VideoBlock
 
 const bylines = [
-  'Help run Lux Network by becoming a validator node and earn a % from every transaction fee.',
-  'Buy and stake LUX Coin to participate in the DAO to help govern the network.',
+  'Run a validator node on P-Chain to secure the network. Validators participate in Quasar consensus with sub-second finality across all six chains.',
+  'Stake LUX on P-Chain to participate in network governance. LUX uses 6 decimals (microLUX base unit) with a 2 trillion supply cap.',
 ]
 
 export default [
@@ -50,7 +50,7 @@ export default [
       {blockType: 'space', level: 0},
       {blockType: 'element',
         element: <ProductCTA learnMoreText='Learn more' learnMoreUrl='/validator' skuPath='LXM-VL' />
-      } satisfies ElementBlock as Block  
+      } satisfies ElementBlock as Block
     ]
   } as CarteBlancheBlock,
   {blockType: 'carte-blanche',

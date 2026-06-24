@@ -12,7 +12,9 @@
     "moduleResolution": "bundler",
     "resolveJsonModule": true,
     "isolatedModules": true,
+    "verbatimModuleSyntax": true,
     "jsx": "preserve",
+    "declaration": false,
     "noEmit": true,
     "baseUrl": ".",
     "paths": {

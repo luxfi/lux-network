@@ -1,23 +1,26 @@
 import React, { type PropsWithChildren } from 'react'
-import type { Viewport, Metadata } from 'next'
+import type { Metadata, Viewport } from 'next'
 
-export const metadata: Metadata = {
-  title: 'network - LUX',
-}
+import {
+  RootLayout as RootLayoutCore,
+  viewport as ViewportCore,
+} from '@luxfi/ui/root-layout'
 
-export const viewport: Viewport = {
-  themeColor: [
-    { media: '(prefers-color-scheme: light)', color: 'white' },
-    { media: '(prefers-color-scheme: dark)', color: 'black' },
-  ],
-}
+import './globals.css'
 
-export default function RootLayout({ children }: PropsWithChildren) {
-  return (
-    <html lang='en' className='dark'>
-      <body className='bg-black text-white flex flex-col min-h-full'>
-        {children}
-      </body>
-    </html>
-  )
-}
+import _metadata from '@/metadata'
+import siteDef from '@/site-def'
+
+export const metadata: Metadata = { ..._metadata }
+
+export const viewport: Viewport = { ...ViewportCore }
+
+const RootLayout: React.FC<PropsWithChildren> = ({
+  children
+}) => (
+  <RootLayoutCore siteDef={siteDef} chatbot>
+    {children}
+  </RootLayoutCore>
+)
+
+export default RootLayout

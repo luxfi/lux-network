@@ -1,0 +1,175 @@
+/**
+ * Lux Network - Global Styles
+ * Monochrome shadcn/ui design system with oklch colors
+ */
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  :root {
+    /* Core semantic tokens - Light mode (monochrome) */
+    --radius: 0.5rem;
+    --background: oklch(1 0 0);
+    --foreground: oklch(0.145 0 0);
+    --card: oklch(1 0 0);
+    --card-foreground: oklch(0.145 0 0);
+    --popover: oklch(1 0 0);
+    --popover-foreground: oklch(0.145 0 0);
+    --primary: oklch(0.205 0 0);
+    --primary-foreground: oklch(0.985 0 0);
+    --secondary: oklch(0.97 0 0);
+    --secondary-foreground: oklch(0.205 0 0);
+    --muted: oklch(0.97 0 0);
+    --muted-foreground: oklch(0.556 0 0);
+    --accent: oklch(0.97 0 0);
+    --accent-foreground: oklch(0.205 0 0);
+    --destructive: oklch(0.577 0.245 27.325);
+    --destructive-foreground: oklch(0.985 0 0);
+    --border: oklch(0.922 0 0);
+    --input: oklch(0.922 0 0);
+    --ring: oklch(0.708 0 0);
+    --chart-1: oklch(0.646 0.222 41.116);
+    --chart-2: oklch(0.6 0.118 184.704);
+    --chart-3: oklch(0.398 0.07 227.392);
+    --chart-4: oklch(0.828 0.189 84.429);
+    --chart-5: oklch(0.769 0.188 70.08);
+    --sidebar: oklch(0.985 0 0);
+    --sidebar-foreground: oklch(0.145 0 0);
+    --sidebar-primary: oklch(0.205 0 0);
+    --sidebar-primary-foreground: oklch(0.985 0 0);
+    --sidebar-accent: oklch(0.97 0 0);
+    --sidebar-accent-foreground: oklch(0.205 0 0);
+    --sidebar-border: oklch(0.922 0 0);
+    --sidebar-ring: oklch(0.708 0 0);
+
+    /* Hanzo UI legacy variables for compatibility */
+    --hz-ui-fg-0: hsl(0 0% 0%);
+    --hz-ui-fg-body: hsl(0 0% 10%);
+    --hz-ui-fg-1: hsl(0 0% 20%);
+    --hz-ui-fg-2: hsl(0 0% 35%);
+    --hz-ui-fg-3: hsl(0 0% 50%);
+    --hz-ui-fg-4: hsl(0 0% 70%);
+    --hz-ui-fg-5: hsl(0 0% 90%);
+    --hz-ui-bg-0: hsl(0 0% 100%);
+    --hz-ui-bg-1: hsl(0 0% 90%);
+    --hz-ui-bg-2: hsl(0 0% 75%);
+    --hz-ui-bg-3: hsl(0 0% 55%);
+    --hz-ui-bg-overlay: hsla(0 0% 100% / 60%);
+    --hz-ui-bg-inverted: var(--hz-ui-fg-0);
+    --hz-ui-bg-inverted-hover: hsla(0 0% 0% / 85%);
+    --hz-ui-fg-inverted: var(--hz-ui-bg-0);
+    --hz-ui-primary: var(--hz-ui-bg-inverted);
+    --hz-ui-primary-hover: var(--hz-ui-bg-inverted-hover);
+    --hz-ui-primary-fg: var(--hz-ui-fg-inverted);
+    --hz-ui-secondary-0: hsl(0 0% 82%);
+    --hz-ui-secondary-1: hsl(0 0% 72%);
+    --hz-ui-secondary-2: hsl(0 0% 62%);
+    --hz-ui-secondary-3: hsl(0 0% 53%);
+    --hz-ui-secondary: var(--hz-ui-secondary-0);
+    --hz-ui-secondary-hover: var(--hz-ui-secondary-2);
+    --hz-ui-secondary-fg: var(--hz-ui-fg-0);
+    --hz-ui-nav: var(--hz-ui-fg-4);
+    --hz-ui-nav-current: var(--hz-ui-fg-0);
+    --hz-ui-nav-hover: var(--hz-ui-fg-0);
+    --hz-ui-destructive: hsl(0 62.8% 45%);
+    --hz-ui-destructive-hover: hsl(0 62.8% 25%);
+    --hz-ui-destructive-fg: hsl(0 0% 100%);
+    --hz-ui-ring: var(--hz-ui-fg-2);
+    --hz-ui-radius: 0.5rem;
+  }
+
+  .dark, .hanzo-ui-dark-theme {
+    /* Core semantic tokens - Dark mode (Lux brand: monochrome black + white, per @luxfi/ui design system) */
+    --background: oklch(0 0 0);
+    --foreground: oklch(0.95 0 0);
+    --card: oklch(0.06 0 0);
+    --card-foreground: oklch(0.95 0 0);
+    --popover: oklch(0.06 0 0);
+    --popover-foreground: oklch(0.95 0 0);
+    --primary: oklch(0.95 0 0);
+    --primary-foreground: oklch(0.1 0 0);
+    --secondary: oklch(0.15 0 0);
+    --secondary-foreground: oklch(0.95 0 0);
+    --muted: oklch(0.15 0 0);
+    --muted-foreground: oklch(0.65 0 0);
+    /* Lux brand accent: monochrome (white-on-black) per @luxfi/ui design system */
+    --accent: oklch(0.95 0 0);
+    --accent-foreground: oklch(0.1 0 0);
+    --destructive: oklch(0.704 0.191 22.216);
+    --destructive-foreground: oklch(0.985 0 0);
+    --border: oklch(1 0 0 / 8%);
+    --input: oklch(1 0 0 / 10%);
+    --ring: oklch(0.708 0 0);
+    --chart-1: oklch(0.488 0.243 264.376);
+    --chart-2: oklch(0.696 0.17 162.48);
+    --chart-3: oklch(0.769 0.188 70.08);
+    --chart-4: oklch(0.627 0.265 303.9);
+    --chart-5: oklch(0.645 0.246 16.439);
+    --sidebar: oklch(0.205 0 0);
+    --sidebar-foreground: oklch(0.985 0 0);
+    --sidebar-primary: oklch(0.922 0 0);
+    --sidebar-primary-foreground: oklch(0.205 0 0);
+    --sidebar-accent: oklch(0.269 0 0);
+    --sidebar-accent-foreground: oklch(0.985 0 0);
+    --sidebar-border: oklch(1 0 0 / 10%);
+    --sidebar-ring: oklch(0.556 0 0);
+
+    /* Hanzo UI legacy variables for compatibility */
+    --hz-ui-fg-0: hsl(0 0% 100%);
+    --hz-ui-fg-body: hsl(0 0% 92%);
+    --hz-ui-fg-1: hsl(0 0% 85%);
+    --hz-ui-fg-2: hsl(0 0% 65%);
+    --hz-ui-fg-3: hsl(0 0% 45%);
+    --hz-ui-fg-4: hsl(0 0% 35%);
+    --hz-ui-fg-5: hsl(0 0% 20%);
+    --hz-ui-bg-inverted: var(--hz-ui-fg-0);
+    --hz-ui-bg-inverted-hover: hsla(0 0% 100% / 85%);
+    --hz-ui-bg-3: hsl(0 0% 15%);
+    --hz-ui-bg-2: hsl(0 0% 10%);
+    --hz-ui-bg-1: hsl(0 0% 6%);
+    --hz-ui-bg-0: hsl(0 0% 0%);
+    --hz-ui-bg-overlay: hsla(0 0% 0% / 70%);
+    --hz-ui-fg-inverted: var(--hz-ui-bg-0);
+    /* Lux brand accent: monochrome white (no gold) per @luxfi/ui design system */
+    --hz-ui-accent: hsl(0 0% 100%);
+    --hz-ui-accent-hover: hsl(0 0% 85%);
+    --hz-ui-secondary-0: hsl(0 0% 45%);
+    --hz-ui-secondary-1: hsl(0 0% 55%);
+    --hz-ui-secondary-2: hsl(0 0% 65%);
+    --hz-ui-secondary-3: hsl(0 0% 75%);
+  }
+
+  * {
+    border-color: var(--border);
+  }
+
+  body {
+    background-color: var(--background);
+    color: var(--foreground);
+  }
+}
+
+/* Hide Next.js error toasts in production */
+div.nextjs-toast-errors-parent[data-nextjs-toast="true"] {
+  display: none;
+}
+
+.font-heading {
+  @apply uppercase;
+}
+
+/* Hide scrollbar utility */
+.no-scrollbar {
+  -ms-overflow-style: none;
+  scrollbar-width: none;
+}
+
+.no-scrollbar::-webkit-scrollbar {
+  display: none;
+}
+
+.overflow-scroll::-webkit-scrollbar {
+  display: none;
+}

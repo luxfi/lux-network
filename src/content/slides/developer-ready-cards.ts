@@ -6,7 +6,7 @@ import type {
 
 const bylines = [
   'Program using Solidity, Remix, Hardhat, and other familiar tools on the Lux EVM chain. Use ZChain to add security features and our network for regulated financial activities requiring the highest level of compliance.',
-  'Use our SDKs to quickly build multi-chain DeFi apps and use Lux Bridge to safely and securely transfer assets between subnets and other blockchains.'
+  'Use our SDKs to quickly build multi-chain DeFi apps and use Lux Bridge to safely and securely transfer assets between L1s and other blockchains.'
 ]
  // re images: https://nextjs.org/docs/pages/api-reference/components/image#responsive-image-with-aspect-ratio
 export default [

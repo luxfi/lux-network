@@ -1,5 +1,5 @@
-import type { 
-  GridBlock, 
+import type {
+  GridBlock,
   EnhHeadingBlock,
 } from '@hanzo/ui/blocks'
 import { COMMON_GRID_2_COL } from '@hanzo/ui/types'
@@ -9,10 +9,11 @@ export default {
   blockType: 'screenful',
   columnSpecifiers: ['center vert-center'],
   contentColumns: [[
-    {blockType: 'enh-heading', 
+    {blockType: 'enh-heading',
       icon: '/assets/content/icon-24-7-security-475.png',
       iconSize: 40,
-      heading: {text: 'PEAK SECURITY', level: 5},
+      preheading: {text: 'QUANTUM-RESISTANT', level: 5, mb: 2},
+      heading: {text: 'PEAK SECURITY', level: 1},
     } as EnhHeadingBlock,
     {blockType: 'grid',
       grid: COMMON_GRID_2_COL,

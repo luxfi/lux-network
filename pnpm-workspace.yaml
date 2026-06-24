@@ -1,0 +1,2 @@
+patchedDependencies:
+  '@luxfi/ui@5.5.3': patches/@luxfi__ui@5.5.3.patch

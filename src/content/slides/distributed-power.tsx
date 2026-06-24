@@ -7,7 +7,7 @@ import type {
 import { COMMON_GRID_4_COL } from '@hanzo/ui/types'
 import cells from './distributed-power-cards'
 
-const byline = 'Lux DAO empowers users to directly impact the direction of the Lux Network to eliminate the single-point failure that has become synonymous with centralized organizations.'
+const byline = 'Quasar consensus powers all six Lux chains with sub-second finality. Wave voting, Focus confidence, Flare finalization, and Horizon finality protocols work together to achieve network-wide agreement with Byzantine fault tolerance.'
 
 export default {
   blockType: 'screenful',
@@ -28,14 +28,14 @@ export default {
           blockType: 'enh-heading',
           icon: '/assets/content/icon-dao-copy.png',
           iconSize: 40,
-          preheading: { text: 'LUX DAO', level: 5, mb: 2 },
+          preheading: { text: 'QUASAR CONSENSUS', level: 5, mb: 2 },
           heading: { text: 'DISTRIBUTED POWER', level: 1 },
           byline: { text: byline, level: 6 },
         } as EnhHeadingBlock,
         {
           blockType: 'image',
           src: '/assets/content/illustration-dao-purple-p-800.png',
-          alt: 'Lux DAO',
+          alt: 'Quasar Consensus',
           dim: { h: 300, w: 300 },
         } as ImageBlock,
       ],

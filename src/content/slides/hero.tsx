@@ -15,11 +15,11 @@ type HeroProps = {
 }
 
 const checkedText = [
-  "Sovereign and unstoppable",
-  "Lightning-fast transactions",
-  "Future-proof quantum security",
-  "Privacy built for the modern age",
-  "Effortless high-yield staking",
+  "Six specialized chains: P, X, C, D, T, Q",
+  "Sub-second finality, 4,500+ TPS per chain",
+  "Post-quantum security: ML-KEM, ML-DSA, SLH-DSA",
+  "FHE privacy on T-Chain, ZK on Z-Chain",
+  "Quasar consensus with Flare finalization",
 ]
 
 const video = {
@@ -51,11 +51,11 @@ const createScreenful = (props: HeroProps): ScreenfulBlock => ({
     [
       {
         blockType: 'element',
-        element: <p className='self-start text-base sm:text-xs mb-2 px-4 md:px-0'>Access to over $3.1 trillion hyper liquid assets and growing</p>,
+        element: <p className='self-start text-base sm:text-xs mb-2 px-4 md:px-0'>Multi-chain architecture with specialized VMs for every use case</p>,
       } as ElementBlock,
       {
         blockType: 'element',
-        element: <span className='self-start text-2xl sm:text-lg mb-4 px-4 md:px-0'>Private, Post-Quantum, <b>Sovereign DeFi</b></span>,
+        element: <span className='self-start text-2xl sm:text-lg mb-4 px-4 md:px-0'>Post-Quantum, Privacy-First, <b>High-Performance DeFi</b></span>,
       } as ElementBlock,
       {
         blockType: 'element',
