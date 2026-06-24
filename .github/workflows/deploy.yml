@@ -1,59 +1,74 @@
-name: Deploy to GitHub Pages
+name: Build static image
+
+# lux.network is served via the unified Hanzo infra: this workflow builds one
+# semver image (ghcr.io/luxfi/lux-network — the Next static export baked into
+# ghcr.io/hanzoai/static) on the self-hosted arcd runner. luxfi/universe pins
+# the tag and the operator/PaaS reconciles it onto DOKS behind hanzoai/ingress.
+# No GitHub Pages, no GitHub-hosted builders, no Cloudflare-by-hand.
 
 on:
   push:
-    branches: [main]
+    branches:
+      - main
+    tags:
+      - "v*"
+    paths-ignore:
+      - "**/*.md"
+      - "**/*.mdx"
+  pull_request:
+    branches:
+      - main
   workflow_dispatch:
 
-permissions:
-  contents: read
-  pages: write
-  id-token: write
-
 concurrency:
-  group: "pages"
-  cancel-in-progress: false
+  group: lux-network-build-${{ github.ref }}
+  cancel-in-progress: true
+
+env:
+  REGISTRY: ghcr.io
+  IMAGE: ghcr.io/luxfi/lux-network
 
 jobs:
   build:
-    runs-on: ubuntu-latest
+    runs-on: [self-hosted, linux, amd64]
+    permissions:
+      contents: read
+      packages: write
     steps:
       - name: Checkout
         uses: actions/checkout@v4
 
-      - name: Setup pnpm
-        uses: pnpm/action-setup@v4
+      - name: Set up Docker Buildx
+        uses: docker/setup-buildx-action@v3
 
-      - name: Setup Node
-        uses: actions/setup-node@v4
+      - name: Login to GitHub Container Registry
+        uses: docker/login-action@v3
         with:
-          node-version: "22"
+          registry: ${{ env.REGISTRY }}
+          username: ${{ github.repository_owner }}
+          password: ${{ secrets.GITHUB_TOKEN }}
 
-      - name: Install dependencies
-        run: pnpm install --no-frozen-lockfile
-
-      - name: Build
-        env:
-          # IAM redirect target — was rendering literal "undefined" in href
-          # because @hanzo/auth's AuthWidget reads NEXT_PUBLIC_LOGIN_SITE_URL.
-          NEXT_PUBLIC_LOGIN_SITE_URL: https://lux.id/login
-        run: pnpm build
-
-      - name: Prepare deployment
-        run: touch out/.nojekyll
-
-      - name: Upload artifact
-        uses: actions/upload-pages-artifact@v3
+      - name: Extract metadata
+        id: meta
+        uses: docker/metadata-action@v5
         with:
-          path: ./out
+          images: ${{ env.IMAGE }}
+          flavor: |
+            latest=false
+          tags: |
+            type=semver,pattern={{version}}
+            type=sha,prefix=sha-
 
-  deploy:
-    environment:
-      name: github-pages
-      url: ${{ steps.deployment.outputs.page_url }}
-    runs-on: ubuntu-latest
-    needs: build
-    steps:
-      - name: Deploy to GitHub Pages
-        id: deployment
-        uses: actions/deploy-pages@v4
+      - name: Build and push image
+        uses: docker/build-push-action@v6
+        with:
+          context: .
+          platforms: linux/amd64
+          labels: ${{ steps.meta.outputs.labels }}
+          tags: ${{ steps.meta.outputs.tags }}
+          cache-from: type=gha,scope=lux-network
+          cache-to: type=gha,mode=max,scope=lux-network
+          provenance: false
+          push: ${{ github.event_name != 'pull_request' }}
+          build-args: |
+            NEXT_PUBLIC_LOGIN_SITE_URL=https://lux.id/login
