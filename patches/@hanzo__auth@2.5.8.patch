@@ -1,0 +1,22 @@
+diff --git a/server/firebase-support.ts b/server/firebase-support.ts
+index 2b23cd0fa840744fb70b7953cc5b5f8a46e136de..41ecf1c3dbb964e9d67e8efd68995e736c4408e1 100644
+--- a/server/firebase-support.ts
++++ b/server/firebase-support.ts
+@@ -16,7 +16,7 @@ export async function getUserServerSide(): Promise<HanzoUserInfoValue | null> {
+   try {
+     // Dynamic imports to prevent bundling issues in static export
+     const { cookies } = await import('next/headers')
+-    const { initializeApp, getApps, cert, type App } = await import('firebase-admin/app')
++    const { initializeApp, getApps, cert } = await import('firebase-admin/app')
+     const { getAuth } = await import('firebase-admin/auth')
+     const { getFirestore } = await import('firebase-admin/firestore')
+ 
+@@ -39,7 +39,7 @@ export async function getUserServerSide(): Promise<HanzoUserInfoValue | null> {
+       }, 'firebase-admin-app')
+ 
+     const auth = getAuth(firebaseApp)
+-    const db = getFirestore(firebaseApp as App, 'accounts')
++    const db = getFirestore(firebaseApp as any, 'accounts')
+ 
+     const c = await cookies()
+     const session = c.get('__session')?.value

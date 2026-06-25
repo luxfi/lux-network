@@ -1,13 +1,12 @@
 'use client'
 
 import Link from 'next/link'
-import dynamic from 'next/dynamic'
 import { ArrowRight, Layers, Zap, Shield, Cpu } from 'lucide-react'
+
+import { Header, Footer } from '@luxfi/ui'
+
 import { coreChains, defiChains, privacyChains, infraChains } from '@/data/chains'
 import siteDef from '@/site-def'
-
-const Header = dynamic(() => import('@luxfi/ui').then(mod => mod.Header), { ssr: false })
-const Footer = dynamic(() => import('@luxfi/ui').then(mod => mod.Footer), { ssr: false })
 
 const categories = [
   { label: 'Core Chains', icon: Layers, chains: coreChains, desc: 'The foundational chains that run on every node.' },
@@ -19,7 +18,7 @@ const categories = [
 export default function DocsIndexPage() {
   return (
     <>
-      <Header siteDef={siteDef} />
+      <Header siteDef={siteDef} logoVariant='full' />
 
       <div className="max-w-5xl mx-auto px-6 py-16">
         <h1 className="text-4xl sm:text-5xl font-bold mb-4">Chain Documentation</h1>
