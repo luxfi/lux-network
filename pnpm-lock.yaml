@@ -9,7 +9,7 @@ patchedDependencies:
     hash: 0dfecd9617670bbdc964581443c267ab967b35e42e61fb843121d3befc0d6a4f
     path: patches/@hanzo__auth@2.5.8.patch
   '@luxfi/ui@5.5.3':
-    hash: 31a176dc2a2cb17064371ba55808c6da031c39900cf12643beb7e9e33b71944b
+    hash: a2ed324eda39e00c9bcac8f7f95667cd5562a350b2b2f3f486dadca2c59e17ea
     path: patches/@luxfi__ui@5.5.3.patch
 
 importers:
@@ -29,11 +29,11 @@ importers:
         specifier: ^1.1.1
         version: 1.1.1(@hanzo/commerce@7.3.10(dd828630f46249124ea2628cee232963))(@hanzo/ui@5.3.34(@hookform/resolvers@3.10.0(react-hook-form@7.71.1(react@18.3.1)))(@types/react-dom@18.3.1)(@types/react@18.3.12)(date-fns@3.6.0)(embla-carousel@8.6.0)(framer-motion@11.18.2(react-dom@18.3.1(react@18.3.1))(react@18.3.1))(lucide-react@0.468.0(react@18.3.1))(mobx@6.15.0)(next-themes@0.4.6(react-dom@18.3.1(react@18.3.1))(react@18.3.1))(next@14.2.16(@babel/core@7.28.6)(@opentelemetry/api@1.9.0)(@playwright/test@1.58.0)(react-dom@18.3.1(react@18.3.1))(react@18.3.1))(react-day-picker@9.13.0(react@18.3.1))(react-dom@18.3.1(react@18.3.1))(react-hook-form@7.71.1(react@18.3.1))(react-resizable-panels@1.0.10(react-dom@18.3.1(react@18.3.1))(react@18.3.1))(react@18.3.1)(tailwindcss@3.4.17)(validator@13.15.26))(lucide-react@0.468.0(react@18.3.1))
       '@luxfi/logo':
-        specifier: file:../../logo
-        version: file:../../logo(react@18.3.1)
+        specifier: ^1.0.0
+        version: 1.0.0(react@18.3.1)
       '@luxfi/ui':
         specifier: ^5.5.3
-        version: 5.5.3(patch_hash=31a176dc2a2cb17064371ba55808c6da031c39900cf12643beb7e9e33b71944b)(a89a75be76c8aa30931096a6626146df)
+        version: 5.5.3(patch_hash=a2ed324eda39e00c9bcac8f7f95667cd5562a350b2b2f3f486dadca2c59e17ea)(a89a75be76c8aa30931096a6626146df)
       '@next/mdx':
         specifier: 14.2.16
         version: 14.2.16(@mdx-js/loader@3.1.1)(@mdx-js/react@3.1.1(@types/react@18.3.12)(react@18.3.1))
@@ -1261,8 +1261,8 @@ packages:
       '@hanzo/ui': 'catalog:'
       lucide-react: 'catalog:'
 
-  '@luxfi/logo@file:../../logo':
-    resolution: {directory: ../../logo, type: directory}
+  '@luxfi/logo@1.0.0':
+    resolution: {integrity: sha512-D7O9Jjmd59o9uJyWC32zAttZYmnqyXqZUXtHo0c6BxoAL9xdnmi8zA1bWkq6cSsLRDh6MaVXSlNrL4CfA5TK+Q==}
     peerDependencies:
       react: '>=16.8.0'
     peerDependenciesMeta:
@@ -5709,7 +5709,7 @@ snapshots:
       '@hanzo/ui': 5.3.34(@hookform/resolvers@3.10.0(react-hook-form@7.71.1(react@18.3.1)))(@types/react-dom@18.3.1)(@types/react@18.3.12)(date-fns@3.6.0)(embla-carousel@8.6.0)(framer-motion@11.18.2(react-dom@18.3.1(react@18.3.1))(react@18.3.1))(lucide-react@0.468.0(react@18.3.1))(mobx@6.15.0)(next-themes@0.4.6(react-dom@18.3.1(react@18.3.1))(react@18.3.1))(next@14.2.16(@babel/core@7.28.6)(@opentelemetry/api@1.9.0)(@playwright/test@1.58.0)(react-dom@18.3.1(react@18.3.1))(react@18.3.1))(react-day-picker@9.13.0(react@18.3.1))(react-dom@18.3.1(react@18.3.1))(react-hook-form@7.71.1(react@18.3.1))(react-resizable-panels@1.0.10(react-dom@18.3.1(react@18.3.1))(react@18.3.1))(react@18.3.1)(tailwindcss@3.4.17)(validator@13.15.26)
       lucide-react: 0.468.0(react@18.3.1)
 
-  '@luxfi/logo@file:../../logo(react@18.3.1)':
+  '@luxfi/logo@1.0.0(react@18.3.1)':
     dependencies:
       sharp: 0.34.5
     optionalDependencies:
@@ -5724,7 +5724,7 @@ snapshots:
     transitivePeerDependencies:
       - react-dom
 
-  '@luxfi/ui@5.5.3(patch_hash=31a176dc2a2cb17064371ba55808c6da031c39900cf12643beb7e9e33b71944b)(a89a75be76c8aa30931096a6626146df)':
+  '@luxfi/ui@5.5.3(patch_hash=a2ed324eda39e00c9bcac8f7f95667cd5562a350b2b2f3f486dadca2c59e17ea)(a89a75be76c8aa30931096a6626146df)':
     dependencies:
       '@hanzo/auth': 2.5.8(patch_hash=0dfecd9617670bbdc964581443c267ab967b35e42e61fb843121d3befc0d6a4f)(f8e659832fdbf3d941bdadac03b685e0)
       '@hanzo/commerce': 7.3.10(dd828630f46249124ea2628cee232963)
