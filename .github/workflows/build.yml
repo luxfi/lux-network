@@ -1,0 +1,53 @@
+name: Docker Build
+
+# lux.network — full dynamic Next.js app, built as a standalone Node server
+# image (see Dockerfile / LLM.md), NOT the old GitHub Pages static export.
+#
+# Single-arch (linux/amd64) build on the self-hosted `lux-build` ARC scale-set
+# on evo — never GitHub-hosted builders. lux-network is a PUBLIC repo so it
+# can't call the PRIVATE luxfi/.github reusable workflow; the build is inlined.
+# Cluster nodes are amd64; arm64 is intentionally not built. The published
+# semver tag is pinned in luxfi/universe (k8s/lux-web/lux-network.yaml).
+
+on:
+  workflow_dispatch:
+  push:
+    tags: ['v*']
+
+permissions:
+  contents: read
+  packages: write
+
+jobs:
+  build:
+    runs-on: lux-build
+    steps:
+      - uses: actions/checkout@v4
+      - uses: docker/setup-buildx-action@v3
+      - uses: docker/login-action@v3
+        with:
+          registry: ghcr.io
+          username: ${{ github.actor }}
+          password: ${{ secrets.GITHUB_TOKEN }}
+      - name: Compute tags
+        id: meta
+        run: |
+          set -e
+          if [[ "${GITHUB_REF}" == refs/tags/v* ]]; then
+            v="${GITHUB_REF#refs/tags/v}"
+            echo "tags=ghcr.io/luxfi/lux-network:${v},ghcr.io/luxfi/lux-network:${v}-amd64,ghcr.io/luxfi/lux-network:latest" >> "$GITHUB_OUTPUT"
+          else
+            echo "tags=ghcr.io/luxfi/lux-network:sha-${GITHUB_SHA::7}-amd64" >> "$GITHUB_OUTPUT"
+          fi
+      - name: Build & push
+        uses: docker/build-push-action@v6
+        with:
+          context: .
+          platforms: linux/amd64
+          push: true
+          tags: ${{ steps.meta.outputs.tags }}
+          # @hanzo/auth bakes the lux.id login URL at build time.
+          build-args: |
+            NEXT_PUBLIC_LOGIN_SITE_URL=https://lux.id/login
+          cache-from: type=gha,scope=lux-network-amd64
+          cache-to: type=gha,scope=lux-network-amd64,mode=max
