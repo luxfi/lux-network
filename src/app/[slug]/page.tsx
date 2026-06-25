@@ -1,21 +1,31 @@
-import dynamic from 'next/dynamic'
+import { notFound } from 'next/navigation'
 
-const ProductPageContent = dynamic(() => import('@/components/ProductPageContent'), { ssr: false })
+import type ProductDetailBlock from '@/blocks/def/product-detail-block'
+import { products } from '@/content'
+import ProductDetailContent from '@/components/ProductDetailContent'
 
-export async function generateStaticParams() {
-  return [
-    { slug: 'coin' },
-    { slug: 'validator' },
-  ]
+type Props = {
+  params: { slug: 'coin' | 'validator' }
 }
 
-export async function generateMetadata({ params }: { params: { slug: string }}) {
-  const capitalized = params.slug.charAt(0).toUpperCase() + params.slug.slice(1)
+// Product detail pages render the @luxfi/ui chrome (client) and the commerce
+// CTA — rendered on demand by the standalone Node server.
+export const dynamic = 'force-dynamic'
+
+export async function generateMetadata({ params }: Props) {
+  const title = params.slug
+  const capitalized = title.charAt(0).toUpperCase() + title.slice(1)
   return { title: capitalized }
 }
 
-const ProductPage = ({ params }: { params: { slug: string }}) => (
-  <ProductPageContent slug={params.slug} />
-)
+const ProductPage = ({ params }: Props) => {
+  const product = products[params.slug] as ProductDetailBlock
+
+  if (!product) {
+    notFound()
+  }
+
+  return <ProductDetailContent block={product} />
+}
 
 export default ProductPage

@@ -29,7 +29,7 @@ export const chains: ChainInfo[] = [
 The P-Chain implements the Quasar consensus protocol for linear chain ordering and provides the security backbone for the entire network. Every node on Lux Network validates the P-Chain, making it the most decentralized and secure chain in the ecosystem.
 
 Key capabilities include validator set management with configurable staking parameters, L1 creation with custom VM configurations, cross-chain atomic transfers via shared memory, and reward distribution for validators and delegators.`,
-    color: 'from-blue-500/20 to-blue-600/5',
+    color: 'from-foreground/[0.06] to-transparent',
     consensus: 'Linear',
     category: 'core',
     categoryLabel: 'Core Chain',
@@ -80,7 +80,7 @@ const tx = await pchain.addDelegator(
 Unlike account-based chains, the X-Chain's UTXO model provides inherent privacy benefits and enables atomic multi-asset transfers in a single transaction. Assets created on the X-Chain can represent anything: tokens, NFTs, stablecoins, or custom digital instruments.
 
 The DAG consensus allows transactions to be confirmed without waiting for blocks, achieving sub-second finality for simple transfers. Complex operations involving multiple UTXOs are batched efficiently.`,
-    color: 'from-purple-500/20 to-purple-600/5',
+    color: 'from-foreground/[0.06] to-transparent',
     consensus: 'DAG',
     category: 'core',
     categoryLabel: 'Core Chain',
@@ -126,7 +126,7 @@ const tx = await xchain.createFixedCapAsset(
 What sets C-Chain apart from other EVM chains is its native precompiles: DEX operations, threshold signatures, and ZK verification are available at the EVM level for maximum gas efficiency. The dynamic gas pricing model (LP-176) adjusts fees based on network load, preventing fee spikes during congestion.
 
 C-Chain benefits from the same Quasar consensus that powers the rest of Lux Network, delivering sub-second finality with deterministic confirmation. No more waiting 12+ seconds for a block.`,
-    color: 'from-emerald-500/20 to-emerald-600/5',
+    color: 'from-foreground/[0.06] to-transparent',
     consensus: 'Linear',
     category: 'core',
     categoryLabel: 'Core Chain',
@@ -176,7 +176,7 @@ const hash = await client.deployContract({
 MEV protection is built into the consensus layer, not bolted on as an afterthought. Transaction ordering is fair by design, preventing front-running and sandwich attacks that plague other DEX platforms.
 
 Cross-chain atomic swaps allow trustless trading between assets on any Lux chain without bridges or wrapped tokens. The matching engine runs as a native precompile for maximum throughput.`,
-    color: 'from-amber-500/20 to-amber-600/5',
+    color: 'from-foreground/[0.06] to-transparent',
     consensus: 'Linear',
     category: 'defi',
     categoryLabel: 'DeFi Chain',
@@ -221,7 +221,7 @@ const order = await dex.placeLimitOrder({
 Bridge operations are verified by multiple independent parties before execution. The threshold signing scheme means no single party can move funds — a configurable quorum must agree on every cross-chain transfer.
 
 Supported networks include Ethereum, Bitcoin, Solana, Cosmos, Polkadot, and 200+ others. New chains can be added through governance proposals without protocol upgrades.`,
-    color: 'from-orange-500/20 to-orange-600/5',
+    color: 'from-foreground/[0.06] to-transparent',
     consensus: 'Linear',
     category: 'defi',
     categoryLabel: 'DeFi Chain',
@@ -267,7 +267,7 @@ const tx = await bridge.transfer({
 Data providers submit observations that are committed on-chain and aggregated using configurable strategies — median, TWAP, or weighted averages. ZK proofs ensure data integrity, and quorum certificates attest to the validity of each aggregation round.
 
 Unlike off-chain oracle networks, the O-Chain runs as a native Lux blockchain, inheriting the same security guarantees and finality properties as all other chains in the network.`,
-    color: 'from-yellow-500/20 to-yellow-600/5',
+    color: 'from-foreground/[0.06] to-transparent',
     consensus: 'Linear',
     category: 'defi',
     categoryLabel: 'DeFi Chain',
@@ -310,7 +310,7 @@ console.log(\`LUX price: $\${price.value} (round \${price.round})\`)`,
 T-Chain enables enterprise-grade key management without single points of failure. Private keys are never assembled in one place — they're split across multiple parties, and a configurable threshold must cooperate to sign any transaction.
 
 FHE operations on the T-Chain allow smart contracts to compute on encrypted data without ever decrypting it, enabling truly confidential DeFi. Combined with ZK proofs from Z-Chain, this creates the most private blockchain execution environment available.`,
-    color: 'from-rose-500/20 to-rose-600/5',
+    color: 'from-foreground/[0.06] to-transparent',
     consensus: 'Linear',
     category: 'privacy',
     categoryLabel: 'Privacy Chain',
@@ -357,7 +357,7 @@ const sig = await mpc.sign(keyGroup.id, messageHash)`,
 The Quasar hybrid consensus combines classical BLS signatures with Ringtail post-quantum signatures, providing security against both classical and quantum computing attacks. The DAG-based processing model enables parallel transaction execution for maximum throughput.
 
 Q-Chain serves as the security anchor for the entire network. Other chains can reference Q-Chain attestations to provide post-quantum security guarantees for their own operations.`,
-    color: 'from-cyan-500/20 to-cyan-600/5',
+    color: 'from-foreground/[0.06] to-transparent',
     consensus: 'DAG',
     category: 'privacy',
     categoryLabel: 'Privacy Chain',
@@ -401,7 +401,7 @@ const valid = await pq.verify(keypair.publicKey, message, sig)`,
 Nullifier-based double-spend prevention ensures security without revealing transaction graph information. Optional FHE integration via the T-Chain allows smart contracts to operate on encrypted values.
 
 Z-Chain supports both private and transparent transactions, giving users the choice of when to use privacy features. Compliance keys can optionally be configured for regulated environments.`,
-    color: 'from-violet-500/20 to-violet-600/5',
+    color: 'from-foreground/[0.06] to-transparent',
     consensus: 'Linear',
     category: 'privacy',
     categoryLabel: 'Privacy Chain',
@@ -446,7 +446,7 @@ const tx = await zk.privateTransfer({
 K-Chain acts as a decentralized key management service (KMS) where keys are generated, stored, rotated, and revoked through on-chain governance. No single party has access to complete keys — they're always distributed across the validator set.
 
 Enterprises can use K-Chain for secure key lifecycle management without running their own HSM infrastructure. The on-chain audit trail provides complete transparency for compliance requirements.`,
-    color: 'from-pink-500/20 to-pink-600/5',
+    color: 'from-foreground/[0.06] to-transparent',
     consensus: 'Linear',
     category: 'privacy',
     categoryLabel: 'Privacy Chain',
@@ -494,7 +494,7 @@ const encrypted = await kms.encrypt(key.id, plaintext)`,
 Compute providers register on the A-Chain with their hardware capabilities and TEE attestation certificates. Tasks are assigned based on requirements, and results are verified through attestation proofs anchored to the Q-Chain via Merkle trees.
 
 Epoch-based rewards incentivize providers to maintain high availability and performance. The A-Chain enables trustless AI inference and training without revealing model weights or input data.`,
-    color: 'from-indigo-500/20 to-indigo-600/5',
+    color: 'from-foreground/[0.06] to-transparent',
     consensus: 'Linear',
     category: 'infra',
     categoryLabel: 'Infrastructure',
@@ -540,7 +540,7 @@ const result = await ai.getResult(task.id)`,
 Developers define schemas and indexing rules, and G-Chain validators automatically index blockchain data as it's produced. Subscriptions provide real-time updates, and cross-chain federation allows queries that span multiple Lux chains in a single request.
 
 G-Chain eliminates the need for custom indexing infrastructure. Any dApp can query historical and real-time blockchain data through a standard GraphQL endpoint.`,
-    color: 'from-teal-500/20 to-teal-600/5',
+    color: 'from-foreground/[0.06] to-transparent',
     consensus: 'Linear',
     category: 'infra',
     categoryLabel: 'Infrastructure',
@@ -587,7 +587,7 @@ const result = await graph.query(\`{
 Messages are verified through Merkle proofs, with sequence numbers preventing replay attacks. Receipt commitments enable session-aware protocols where both sides can confirm message delivery.
 
 R-Chain extends Lux Network's interoperability beyond simple asset bridges to general-purpose cross-chain communication — enabling cross-chain smart contract calls, governance votes, and data sharing.`,
-    color: 'from-sky-500/20 to-sky-600/5',
+    color: 'from-foreground/[0.06] to-transparent',
     consensus: 'Linear',
     category: 'infra',
     categoryLabel: 'Infrastructure',
@@ -632,7 +632,7 @@ const msg = await relay.sendMessage({
 DIDs are created with the \`did:lux:\` method and can be used for authentication, authorization, and credential presentation across the entire ecosystem. A trusted issuer registry manages which entities can issue verifiable credentials.
 
 ZK selective disclosure allows users to prove claims about their identity (e.g., "I am over 18") without revealing the underlying data. Credential revocation is managed on-chain with instant propagation.`,
-    color: 'from-lime-500/20 to-lime-600/5',
+    color: 'from-foreground/[0.06] to-transparent',
     consensus: 'Linear',
     category: 'infra',
     categoryLabel: 'Infrastructure',

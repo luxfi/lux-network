@@ -2,16 +2,15 @@
 
 import { useParams } from 'next/navigation'
 import Link from 'next/link'
-import dynamic from 'next/dynamic'
 import {
   ArrowLeft, ArrowRight, ArrowUpRight, ExternalLink, Github,
   BookOpen, Layers, Cpu, Shield, Zap, Globe, Code,
 } from 'lucide-react'
+
+import { Header, Footer } from '@luxfi/ui'
+
 import { chains, getChainById, coreChains, defiChains, privacyChains, infraChains } from '@/data/chains'
 import siteDef from '@/site-def'
-
-const Header = dynamic(() => import('@luxfi/ui').then(mod => mod.Header), { ssr: false })
-const Footer = dynamic(() => import('@luxfi/ui').then(mod => mod.Footer), { ssr: false })
 
 const categoryIcon: Record<string, typeof Shield> = {
   core: Layers,
@@ -45,7 +44,7 @@ export default function ChainDetailPage() {
   return (
     <>
       {/* Unified Lux header */}
-      <Header siteDef={siteDef} />
+      <Header siteDef={siteDef} logoVariant='full' />
 
       {/* Hero */}
       <section className="pt-12 pb-16 relative overflow-hidden">
@@ -150,9 +149,9 @@ export default function ChainDetailPage() {
             <p className="text-muted-foreground mb-6">Quick start using the Lux JavaScript SDK.</p>
             <div className="bg-card rounded-2xl border border-border p-6 font-mono text-sm overflow-hidden">
               <div className="flex items-center gap-2 mb-4 text-muted-foreground">
-                <div className="w-3 h-3 rounded-full bg-red-500/60" />
-                <div className="w-3 h-3 rounded-full bg-yellow-500/60" />
-                <div className="w-3 h-3 rounded-full bg-green-500/60" />
+                <div className="w-3 h-3 rounded-full bg-muted-foreground/30" />
+                <div className="w-3 h-3 rounded-full bg-muted-foreground/30" />
+                <div className="w-3 h-3 rounded-full bg-muted-foreground/30" />
                 <span className="ml-2 text-xs">{chain.id.toLowerCase()}-chain-example.ts</span>
               </div>
               <pre className="text-foreground/90 leading-relaxed overflow-x-auto"><code>{chain.sdkExample}</code></pre>
