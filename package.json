@@ -17,7 +17,7 @@
     "@hanzo/commerce": "^7.3.10",
     "@hanzo/ui": "^5.3.34",
     "@luxfi/data": "^1.1.1",
-    "@luxfi/logo": "file:../../logo",
+    "@luxfi/logo": "^1.0.0",
     "@luxfi/ui": "^5.5.3",
     "@next/mdx": "14.2.16",
     "@splinetool/react-spline": "^4.0.0",
