@@ -1,3 +1,50 @@
+diff --git a/components/auth-widget.tsx b/components/auth-widget.tsx
+index df4d8ef6d64b7d5b0718156de9ce3e5315930e77..dc4ebb797277a063e98b5e08414ffe82674364b0 100644
+--- a/components/auth-widget.tsx
++++ b/components/auth-widget.tsx
+@@ -36,6 +36,16 @@ const AuthWidget: React.FC<{
+ 
+   const auth = useAuth()
+ 
++    // Defer reading window.location.href until after mount so the logged-out
++    // markup is byte-identical between the server render and the first client
++    // render. Previously the render branched on `typeof window`: the server
++    // (window undefined) fell through to the profile <Popover> while the client
++    // rendered the <LinkElement> 'Login' — a structural hydration mismatch
++    // (React #418) that aborted hydration of the entire header, leaving the
++    // mega-menu's Radix NavigationMenu handlers unattached so it never opened.
++  const [redirectUrl, setRedirectUrl] = React.useState('')
++  React.useEffect(() => { setRedirectUrl(window.location.href) }, [])
++
+     // This safegaurds against a crash in the rare case
+     // that multiple inistances of auth module are in play.
+     // We safegaurd agains this in the by loading peer Deps from
+@@ -48,20 +58,20 @@ const AuthWidget: React.FC<{
+   
+     // If that is the case, the widget will always show the 'login' 
+     // button regardless of status.
+-  if (!auth.loggedIn && typeof window !== 'undefined') {
++  if (!auth.loggedIn) {
+ 
+     return (handleLogin ? (
+-      <Button 
+-        variant='primary' 
++      <Button
++        variant='primary'
+         className='h-8 w-fit !min-w-0'
+-        onClick={handleLogin} 
++        onClick={handleLogin}
+       >
+         Login
+       </Button>
+     ) : (
+       <LinkElement
+         def={{
+-          href: `${process.env.NEXT_PUBLIC_LOGIN_SITE_URL}?redirectUrl=${window.location.href}`,
++          href: `${process.env.NEXT_PUBLIC_LOGIN_SITE_URL}${redirectUrl ? `?redirectUrl=${encodeURIComponent(redirectUrl)}` : ''}`,
+           title: 'Login',
+           variant: 'primary',
+           newTab: false
 diff --git a/server/firebase-support.ts b/server/firebase-support.ts
 index 2b23cd0fa840744fb70b7953cc5b5f8a46e136de..41ecf1c3dbb964e9d67e8efd68995e736c4408e1 100644
 --- a/server/firebase-support.ts

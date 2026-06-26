@@ -1,34 +1,41 @@
-diff --git a/components/icons/lux-logo.tsx b/components/icons/lux-logo.tsx
-index 527e5e964e4e25573aa28fbfffd15b181bbb6f4e..e820a237476bd605f6ef6568aa8263e2bfda16c3 100644
---- a/components/icons/lux-logo.tsx
-+++ b/components/icons/lux-logo.tsx
-@@ -1,10 +1,25 @@
- import React from 'react'
- import { type LucideProps } from 'lucide-react'
+diff --git a/components/auth/auth-listener.tsx b/components/auth/auth-listener.tsx
+index 817d4470b73fddd5ce0c0f05dbf114c6994c260d..26dc4105a60f9fc823eff78ae27bd2d6f44db875 100644
+--- a/components/auth/auth-listener.tsx
++++ b/components/auth/auth-listener.tsx
+@@ -15,12 +15,16 @@ const AuthListener = () => {
+     .then(response => response.json())
+     .then((data: any) => {
+       const token = data.reqToken
+-      console.log(data)
+-      console.log(token)
+       if (!!token) {
+         auth.loginWithCustomToken(token)
+       }
+     })
++    // The cross-domain SSO token probe is best-effort. When lux.id has not
++    // whitelisted this origin for CORS, or the device is offline, `fetch`
++    // rejects with "TypeError: Failed to fetch". Without this handler that
++    // rejection is an uncaught promise → a window 'error'/'unhandledrejection'
++    // event. Swallow it: a logged-out session is the correct fallback.
++    .catch(() => {})
+   }, [auth])
  
--const LuxLogo: React.FC<LucideProps> = (props: LucideProps) => (
--  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 50 50"  {...props}>
--    <polygon points="25,46.65 50,3.35 0,3.35" fill="white" stroke='black' strokeWidth={props.strokeWidth}/>
--  </svg>
-+import { LuxLogo as CanonicalLuxLogo } from '@luxfi/logo/react'
-+
-+/*
-+  Canonical Lux brand mark.
-+
-+  Sourced from the official @luxfi/logo package (github.com/luxfi/logo) rather
-+  than an inline copy, so every surface that renders a Lux logo inherits the one
-+  canonical mark. The component lives at @luxfi/logo/react (the package root
-+  exports only data/helpers). It fills its wrapper (size='100%'), so the Tailwind
-+  h-/w- sizing classes passed in via className continue to drive the rendered
-+  dimensions exactly as before.
-+*/
-+const LuxLogo: React.FC<LucideProps> = ({ className, style }: LucideProps) => (
-+  <CanonicalLuxLogo
-+    variant='white'
-+    size='100%'
-+    className={className as string | undefined}
-+    style={style as React.CSSProperties | undefined}
-+  />
- )
+   return ( <></> )
+diff --git a/components/chat-widget.tsx b/components/chat-widget.tsx
+index f7874e175a0eecea9f43a78e80c6dcfc1234db4f..c1695561b4a1bc303f2f793a85a290b3dec55d1b 100644
+--- a/components/chat-widget.tsx
++++ b/components/chat-widget.tsx
+@@ -61,7 +61,12 @@ const ChatWidget: React.FC<{
+             <LuxLogo width={24} height={24}/>
+           </Button>
+         </div>
+-        <iframe src={iframeSrc} className='h-full' />
++        {/* Only point the iframe at the chatbot once the panel is opened.
++            Keeping `src` unset until then means a closed widget never loads the
++            remote frame on every page view (no 522 / X-Frame-Options noise), and
++            the markup is byte-identical between server and first client render
++            (showChatbot is false on both), so it can never break hydration. */}
++        <iframe src={showChatbot ? iframeSrc : undefined} className='h-full' />
+       </Card>
+     </div>
  
- export default LuxLogo

@@ -35,3 +35,39 @@ index e707e69a4ad73566d81043566d1b76133f07ef69..faba03905728fea6b58e686f3d7dc2aa
    if (loadingPaymentForm) {
      return (
        <div className='flex flex-col gap-2'>
+diff --git a/components/item-selector/carousel/index.tsx b/components/item-selector/carousel/index.tsx
+index 9d769fe211d2cc6ec5f1b10e8eb9501598270b18..1916a2f477532ad7cb889bcb239c213bc3cf2309 100644
+--- a/components/item-selector/carousel/index.tsx
++++ b/components/item-selector/carousel/index.tsx
+@@ -86,8 +86,13 @@ const CarouselItemSelector: React.FC<ItemSelectorProps> = observer(({
+       return
+     }
+     const index = emblaApi.selectedScrollSnap()
+-    if (index !== -1) {
+-      selectSku(items[index].sku)
++    // Embla fires a 'select' on init even with zero slides (an empty bag, e.g.
++    // navigating straight to /checkout), where selectedScrollSnap() reports 0
++    // and items[0] is undefined. Guard the line item before reading `.sku` so
++    // the carousel degrades to empty instead of throwing to the error boundary.
++    const selected = index !== -1 ? items[index] : undefined
++    if (selected) {
++      selectSku(selected.sku)
+       if (scrollToRef.current) {
+         scrollToRef.current(index)
+       }
+@@ -128,9 +133,13 @@ const CarouselItemSelector: React.FC<ItemSelectorProps> = observer(({
+   }
+ 
+   const onScrollIndexChange = (index: number) => {
++    const selected = items?.[index]
++    if (!selected) {
++      return
++    }
+     dontRespondRef.current = true
+-    selectSku(items![index].sku)
+-    elbaApiRef.current?.scrollTo(index) 
++    selectSku(selected.sku)
++    elbaApiRef.current?.scrollTo(index)
+   }
+ 
+   return ( 

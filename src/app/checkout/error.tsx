@@ -4,15 +4,18 @@
 //
 // Safety net: if anything in the checkout subtree throws during render — e.g.
 // the @hanzo/commerce Square PaymentForm, whose internal ErrorScreen *throws*
-// in production (NODE_ENV !== 'development') when merchant credentials are
-// absent — React unwinds to the nearest error boundary. Without this file that
-// boundary is Next.js's global handler, which white-screens the route with
-// "Application error: a client-side exception has occurred". This boundary keeps
-// the failure contained and renders a clear, on-brand fallback instead.
+// in production when merchant credentials are absent — React unwinds to the
+// nearest error boundary. Without this file that boundary is Next.js's global
+// handler, which white-screens the route with "Application error".
 //
-// The primary path (env-guarded card.tsx renders a "card payments coming soon"
-// state when NEXT_PUBLIC_SQUARE_* are absent) means this should rarely fire — but
-// it guarantees /checkout can never white-screen, whatever throws.
+// It MUST be self-evidently readable no matter what the rest of the layout
+// paints. The shared chrome renders a fixed white ▼ brand mark; a fallback that
+// merely sets `bg-background`/`text-foreground` ends up painted *under* that
+// mark (near-white text occluded by white art) and is invisible. So this
+// fallback is an opaque, top-of-stack overlay (`position: fixed`, `inset: 0`,
+// max `z-index`) with its own dark card and explicitly contrasting colors set
+// inline — it cannot be themed away, occluded, or lose a hydration race.
+// Monochrome (Lux brand): black surface, white text.
 import { useEffect } from 'react'
 import Link from 'next/link'
 
@@ -29,24 +32,79 @@ export default function CheckoutError({
   }, [error])
 
   return (
-    <div className="flex min-h-[100dvh] flex-col items-center justify-center bg-background text-foreground font-inter">
-      <div className="mx-auto max-w-md px-6 text-center">
-        <h1 className="text-3xl font-bold">Checkout is temporarily unavailable</h1>
-        <p className="mt-4 text-base text-muted-foreground">
+    <div
+      role="alert"
+      style={{
+        position: 'fixed',
+        inset: 0,
+        zIndex: 2147483647,
+        display: 'flex',
+        alignItems: 'center',
+        justifyContent: 'center',
+        padding: '24px',
+        background: '#000000',
+        fontFamily:
+          'Inter, ui-sans-serif, system-ui, -apple-system, Segoe UI, Roboto, sans-serif',
+      }}
+    >
+      <div
+        style={{
+          width: '100%',
+          maxWidth: '28rem',
+          textAlign: 'center',
+          background: '#0a0a0a',
+          border: '1px solid rgba(255,255,255,0.12)',
+          borderRadius: '16px',
+          padding: '2.5rem 2rem',
+          boxShadow: '0 24px 64px rgba(0,0,0,0.6)',
+        }}
+      >
+        <h1 style={{ margin: 0, fontSize: '1.5rem', fontWeight: 700, color: '#ffffff' }}>
+          Checkout is temporarily unavailable
+        </h1>
+        <p style={{ margin: '1rem 0 0', fontSize: '0.95rem', lineHeight: 1.6, color: '#a3a3a3' }}>
           We could not load the payment experience right now. Your cart is safe.
           Please try again in a moment.
         </p>
-        <div className="mt-6 flex items-center justify-center gap-3">
+        <div
+          style={{
+            marginTop: '1.75rem',
+            display: 'flex',
+            gap: '0.75rem',
+            justifyContent: 'center',
+            flexWrap: 'wrap',
+          }}
+        >
           <button
             onClick={reset}
-            className="inline-flex items-center rounded-md bg-primary px-4 py-2 text-sm font-medium text-primary-foreground shadow-sm transition-colors hover:bg-primary/90 focus:outline-none focus:ring-2 focus:ring-ring focus:ring-offset-2"
+            style={{
+              appearance: 'none',
+              cursor: 'pointer',
+              border: 0,
+              borderRadius: '9px',
+              padding: '0.625rem 1.25rem',
+              fontSize: '0.875rem',
+              fontWeight: 600,
+              background: '#ffffff',
+              color: '#000000',
+            }}
           >
             Try again
           </button>
           <Link
             href="/"
             prefetch={false}
-            className="inline-flex items-center rounded-md border border-border px-4 py-2 text-sm font-medium text-foreground transition-colors hover:bg-muted focus:outline-none focus:ring-2 focus:ring-ring focus:ring-offset-2"
+            style={{
+              display: 'inline-flex',
+              alignItems: 'center',
+              borderRadius: '9px',
+              padding: '0.625rem 1.25rem',
+              fontSize: '0.875rem',
+              fontWeight: 600,
+              textDecoration: 'none',
+              border: '1px solid rgba(255,255,255,0.3)',
+              color: '#ffffff',
+            }}
           >
             Go to Homepage
           </Link>
