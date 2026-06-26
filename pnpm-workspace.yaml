@@ -1,3 +1,4 @@
 patchedDependencies:
   '@luxfi/ui@5.5.3': patches/@luxfi__ui@5.5.3.patch
   '@hanzo/auth@2.5.8': patches/@hanzo__auth@2.5.8.patch
+  '@hanzo/commerce@7.3.10': patches/@hanzo__commerce@7.3.10.patch
