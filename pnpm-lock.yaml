@@ -25,6 +25,9 @@ importers:
       '@hanzo/commerce':
         specifier: ^7.3.10
         version: 7.3.10(patch_hash=d573a2a78a563513b538d81771d8b28f940ce9920d0f59f13b5abe9ec9a552cf)(dd828630f46249124ea2628cee232963)
+      '@hanzo/design':
+        specifier: ^0.5.21
+        version: 0.5.21
       '@hanzo/ui':
         specifier: ^5.3.34
         version: 5.3.34(@hookform/resolvers@3.10.0(react-hook-form@7.71.1(react@18.3.1)))(@types/react-dom@18.3.1)(@types/react@18.3.12)(date-fns@3.6.0)(embla-carousel@8.6.0)(framer-motion@11.18.2(react-dom@18.3.1(react@18.3.1))(react@18.3.1))(lucide-react@0.468.0(react@18.3.1))(mobx@6.15.0)(next-themes@0.4.6(react-dom@18.3.1(react@18.3.1))(react@18.3.1))(next@14.2.16(@babel/core@7.28.6)(@opentelemetry/api@1.9.0)(@playwright/test@1.58.0)(react-dom@18.3.1(react@18.3.1))(react@18.3.1))(react-day-picker@9.13.0(react@18.3.1))(react-dom@18.3.1(react@18.3.1))(react-hook-form@7.71.1(react@18.3.1))(react-resizable-panels@1.0.10(react-dom@18.3.1(react@18.3.1))(react@18.3.1))(react@18.3.1)(tailwindcss@3.4.17)(validator@13.15.26)
@@ -46,9 +49,6 @@ importers:
       '@splinetool/runtime':
         specifier: ^1.10.8
         version: 1.12.41
-      geist:
-        specifier: ^1.4.2
-        version: 1.7.0(next@14.2.16(@babel/core@7.28.6)(@opentelemetry/api@1.9.0)(@playwright/test@1.58.0)(react-dom@18.3.1(react@18.3.1))(react@18.3.1))
       lucide-react:
         specifier: ^0.468.0
         version: 0.468.0(react@18.3.1)
@@ -1025,8 +1025,13 @@ packages:
       react-hook-form: '>=7.51.4'
       zod: ^3.23.8
 
+  '@hanzo/design@0.5.21':
+    resolution: {integrity: sha512-E2g6DZCn2IUf2AQKqPMwlVV5fz2wvIpAagFRLx33gIsJfmpyubFnx0LINjFs7UoMI1ajnwSa73k7rPteVSemUw==}
+    hasBin: true
+
   '@hanzo/ui@5.3.34':
     resolution: {integrity: sha512-iFMZLT8L5BNFYNJec8cBSHeSH3ookWq3am3RsJauyGOnel4faGF2tv9p81Yt7ZiJQkH6qyqCtJ/1avvI5oQaNg==}
+    deprecated: moved to @hanzo/ui-shadcn; @hanzo/ui@8+ is the @hanzo/gui-based unified library
     hasBin: true
     peerDependencies:
       '@dnd-kit/core': ^6.0.0
@@ -2301,6 +2306,7 @@ packages:
 
   '@ungap/structured-clone@1.3.0':
     resolution: {integrity: sha512-WmoN8qaIAo7WTYWbAZuG8PYEhn5fkz7dZrqTBZ7dtt//lL2Gwms1IcnQ5yHqjDfX8Ft5j4YzDM23f87zBfDe9g==}
+    deprecated: Potential CWE-502 - Update to 1.3.1 or higher
 
   abort-controller@3.0.0:
     resolution: {integrity: sha512-h8lQ8tacZYnR3vNQTgibj+tODHI5/+l06Au2Pcriv/Gmet0eaj4TwWH41sO9wnHDiQsEj19q0drzdWdeAHtweg==}
@@ -2902,11 +2908,6 @@ packages:
   gcp-metadata@6.1.1:
     resolution: {integrity: sha512-a4tiq7E0/5fTjxPAaH4jpjkSv/uCaU2p5KC6HVGrvl0cDjA8iBZv4vv1gyzlmK0ZUKqwpOyQMKzZQe3lTit77A==}
     engines: {node: '>=14'}
-
-  geist@1.7.0:
-    resolution: {integrity: sha512-ZaoiZwkSf0DwwB1ncdLKp+ggAldqxl5L1+SXaNIBGkPAqcu+xjVJLxlf3/S8vLt9UHx1xu5fz3lbzKCj5iOVdQ==}
-    peerDependencies:
-      next: '>=13.2.0'
 
   gensync@1.0.0-beta.2:
     resolution: {integrity: sha512-3hN7NaskYvMDLQY55gnW3NQ+mesEAepTqlg+VEbj7zzqEMBVNhzcGYYeqFo/TlYz6eQiFcp1HcsCZO+nGgS8zg==}
@@ -4105,19 +4106,22 @@ packages:
 
   uuid@10.0.0:
     resolution: {integrity: sha512-8XkAphELsDnEGrDxUOHB3RGvXz6TeuYSGEZBOjtTtPm2lwhGBjLgOzLHB63IUWfBpNucQjND6d3AOudO+H3RWQ==}
+    deprecated: uuid@10 and below is no longer supported.  For ESM codebases, update to uuid@latest.  For CommonJS codebases, use uuid@11 (but be aware this version will likely be deprecated in 2028).
     hasBin: true
 
   uuid@3.4.0:
     resolution: {integrity: sha512-HjSDRw6gZE5JMggctHBcjVak08+KEVhSIiDzFnT9S9aegmp85S/bReBVTb4QTFaRNptJ9kuYaNhnbNEOkbKb/A==}
-    deprecated: Please upgrade  to version 7 or higher.  Older versions may use Math.random() in certain circumstances, which is known to be problematic.  See https://v8.dev/blog/math-random for details.
+    deprecated: uuid@10 and below is no longer supported.  For ESM codebases, update to uuid@latest.  For CommonJS codebases, use uuid@11 (but be aware this version will likely be deprecated in 2028).
     hasBin: true
 
   uuid@8.3.2:
     resolution: {integrity: sha512-+NYs2QeMWy+GWFOEm9xnn6HCDp0l7QBD7ml8zLUmJ+93Q5NF0NocErnwkTkXVFNiX3/fpC6afS8Dhb/gz7R7eg==}
+    deprecated: uuid@10 and below is no longer supported.  For ESM codebases, update to uuid@latest.  For CommonJS codebases, use uuid@11 (but be aware this version will likely be deprecated in 2028).
     hasBin: true
 
   uuid@9.0.1:
     resolution: {integrity: sha512-b+1eJOlsR9K8HJpow9Ok3fiWOWSIcIzXodvv0rQjVoOVNpWMpxf1wZNpt4y9h10odCNrqnYp1OBzRktckBe3sA==}
+    deprecated: uuid@10 and below is no longer supported.  For ESM codebases, update to uuid@latest.  For CommonJS codebases, use uuid@11 (but be aware this version will likely be deprecated in 2028).
     hasBin: true
 
   validator@13.15.26:
@@ -5509,6 +5513,8 @@ snapshots:
       - bufferutil
       - debug
       - utf-8-validate
+
+  '@hanzo/design@0.5.21': {}
 
   '@hanzo/ui@5.3.34(@hookform/resolvers@3.10.0(react-hook-form@7.71.1(react@18.3.1)))(@types/react-dom@18.3.1)(@types/react@18.3.12)(date-fns@3.6.0)(embla-carousel@8.6.0)(framer-motion@11.18.2(react-dom@18.3.1(react@18.3.1))(react@18.3.1))(lucide-react@0.468.0(react@18.3.1))(mobx@6.15.0)(next-themes@0.4.6(react-dom@18.3.1(react@18.3.1))(react@18.3.1))(next@14.2.16(@babel/core@7.28.6)(@opentelemetry/api@1.9.0)(@playwright/test@1.58.0)(react-dom@18.3.1(react@18.3.1))(react@18.3.1))(react-day-picker@9.13.0(react@18.3.1))(react-dom@18.3.1(react@18.3.1))(react-hook-form@7.71.1(react@18.3.1))(react-resizable-panels@1.0.10(react-dom@18.3.1(react@18.3.1))(react@18.3.1))(react@18.3.1)(tailwindcss@3.4.17)(validator@13.15.26)':
     dependencies:
@@ -7471,10 +7477,6 @@ snapshots:
       - encoding
       - supports-color
     optional: true
-
-  geist@1.7.0(next@14.2.16(@babel/core@7.28.6)(@opentelemetry/api@1.9.0)(@playwright/test@1.58.0)(react-dom@18.3.1(react@18.3.1))(react@18.3.1)):
-    dependencies:
-      next: 14.2.16(@babel/core@7.28.6)(@opentelemetry/api@1.9.0)(@playwright/test@1.58.0)(react-dom@18.3.1(react@18.3.1))(react@18.3.1)
 
   gensync@1.0.0-beta.2: {}
 
