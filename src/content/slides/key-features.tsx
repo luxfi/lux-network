@@ -14,7 +14,7 @@ export default {
       iconSize: 28,
       cards: [
         {
-          text: 'Six specialized chains: P, X, C, D, T, Q with purpose-built VMs.',
+          text: 'Fourteen chains: P, X, C, D, B, O, T, Q, Z, K, A, G, R, I.',
           icon: '/assets/content/icon-apps-475.png'
         },
         {

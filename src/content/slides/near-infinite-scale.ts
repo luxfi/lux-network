@@ -6,7 +6,7 @@ import type {
 
 const bylines = [
   'Quasar consensus enables sub-second finality with 4,500+ TPS per chain. Wave voting and Focus confidence accumulation ensure rapid agreement across validator sets.',
-  'Six specialized chains (P, X, C, D, T, Q) each run purpose-built VMs. DAG-optimized parallel processing enables efficient cross-chain transaction routing.',
+  'Fourteen chains, each a purpose-built VM: P, X, C, D, B, O, T, Q, Z, K, A, G, R, I. Work routes to the chain built for it and runs in parallel.',
   'ZAP transport protocol provides zero-copy VM communication with 5-10x faster serialization than protobuf, 2-3x lower latency, and 30-50% CPU reduction.',
   'Flare finalization and Horizon finality protocols ensure deterministic transaction ordering. Prism geometry optimizes validator sampling for network-wide consensus.',
 ]
@@ -35,7 +35,7 @@ export default {
           byline: {text: bylines[0], level: 6},
         } satisfies EnhHeadingBlock as Block,
         {blockType: 'enh-heading',
-          heading: {text: 'Six chains with specialized virtual machines.', level: 4},
+          heading: {text: 'Fourteen chains, fourteen virtual machines.', level: 4},
           byline: {text: bylines[1], level: 6},
         } satisfies EnhHeadingBlock as Block,
         {blockType: 'enh-heading',

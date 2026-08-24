@@ -15,7 +15,7 @@ type HeroProps = {
 }
 
 const checkedText = [
-  "Six specialized chains: P, X, C, D, T, Q",
+  "Fourteen chains: P, X, C, D, B, O, T, Q, Z, K, A, G, R, I",
   "Sub-second finality, 4,500+ TPS per chain",
   "Post-quantum security: ML-KEM, ML-DSA, SLH-DSA",
   "FHE privacy on T-Chain, ZK on Z-Chain",

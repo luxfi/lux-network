@@ -7,7 +7,7 @@ import type {
 import { COMMON_GRID_4_COL } from '@hanzo/ui/types'
 import cells from './distributed-power-cards'
 
-const byline = 'Quasar consensus powers all six Lux chains with sub-second finality. Wave voting, Focus confidence, Flare finalization, and Horizon finality protocols work together to achieve network-wide agreement with Byzantine fault tolerance.'
+const byline = 'One consensus across all fourteen chains. Quasar runs Photon, Wave and Focus to sub-second finality, and tolerates Byzantine validators throughout.'
 
 export default {
   blockType: 'screenful',

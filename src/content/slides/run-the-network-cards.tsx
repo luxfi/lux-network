@@ -33,8 +33,8 @@ const coinVideo = {
 } as VideoBlock
 
 const bylines = [
-  'Run a validator node on P-Chain to secure the network. Validators participate in Quasar consensus with sub-second finality across all six chains.',
-  'Stake LUX on P-Chain to participate in network governance. LUX uses 6 decimals (microLUX base unit) with a 2 trillion supply cap.',
+  'Run a validator on P-Chain. One validator set secures all fourteen chains, voting in Quasar consensus to sub-second finality.',
+  'Stake LUX on P-Chain to earn validator rewards and vote on what the network does next.',
 ]
 
 export default [

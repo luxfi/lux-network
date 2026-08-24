@@ -6,7 +6,7 @@ export default {
     default: 'Lux Network - Post-Quantum, Privacy-First Blockchain',
     template: '%s | Lux Network',
   },
-  description: 'Multi-chain architecture with six specialized VMs. Post-quantum security, FHE privacy, sub-second finality, and 4,500+ TPS per chain.',
+  description: 'Fourteen chains, each a purpose-built VM. Post-quantum security, FHE privacy, sub-second finality, 4,500+ TPS per chain.',
   applicationName: 'Lux Network',
   authors: { name: 'Lux Network' },
   keywords: [
@@ -59,7 +59,7 @@ export default {
   ],
   openGraph: {
     title: 'Lux Network - Post-Quantum, Privacy-First Blockchain',
-    description: 'Multi-chain architecture with six specialized VMs. Post-quantum security (ML-KEM, ML-DSA, SLH-DSA), FHE privacy on T-Chain, sub-second finality, and 4,500+ TPS per chain.',
+    description: 'Fourteen chains, each a purpose-built VM. Post-quantum security (ML-KEM, ML-DSA, SLH-DSA), FHE privacy on T-Chain, sub-second finality, 4,500+ TPS per chain.',
     images: 'https://cdn.lux.network/commerce/vl/product/Lux-VALIDATOR-poster.jpg',
     type: 'website',
     url: 'https://lux.network',
@@ -67,7 +67,7 @@ export default {
   twitter: {
     card: 'summary_large_image',
     title: 'Lux Network - Post-Quantum, Privacy-First Blockchain',
-    description: 'Six specialized chains (P, X, C, D, T, Q) with post-quantum security, FHE privacy, and 4,500+ TPS per chain.',
+    description: 'Fourteen chains — P, X, C, D, B, O, T, Q, Z, K, A, G, R, I — with post-quantum security, FHE privacy, and 4,500+ TPS per chain.',
     images: 'https://cdn.lux.network/commerce/vl/product/Lux-VALIDATOR-poster.jpg',
     site: '@luxfi',
   },

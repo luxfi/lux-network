@@ -54,7 +54,7 @@ const techFeatures = [
   { icon: KeyRound, title: 'MPC Wallets', desc: 'Enterprise Multi-Party Computation wallet infrastructure. Threshold signatures with no single point of failure at mpc.lux.network.' },
   { icon: Cloud, title: 'Lux Cloud', desc: 'Managed node infrastructure for validators and developers. One-click deployment at cloud.lux.network.' },
   { icon: Zap, title: 'Sub-Second Finality', desc: 'Quasar consensus with Flare finalization delivers 4,500+ TPS per chain with deterministic finality.' },
-  { icon: Globe, title: 'Cross-Chain Native', desc: 'Warp messaging enables seamless asset and data transfer between all six specialized chains.' },
+  { icon: Globe, title: 'Cross-Chain Native', desc: 'Warp carries assets and data between all fourteen chains as one network.' },
   { icon: Cpu, title: 'Native Precompiles', desc: 'DEX, threshold signatures, and ZK verification at the EVM level for maximum performance.' },
   { icon: Database, title: 'Infinite Scale', desc: 'L1 architecture allows unlimited horizontal scaling with custom VM configurations.' },
 ]
@@ -63,7 +63,7 @@ const apps = [
   {
     icon: Wallet,
     name: 'Lux Wallet',
-    desc: 'Non-custodial, quantum-secure, multi-asset wallet with support for all six Lux chains. Manage LUX, ERC-20 tokens, NFTs, and L1 assets from a single interface. Built-in staking, dApp browser, and hardware wallet integration.',
+    desc: 'Non-custodial, quantum-secure, multi-asset wallet covering all fourteen Lux chains. Manage LUX, ERC-20 tokens, NFTs, and L1 assets from a single interface. Built-in staking, dApp browser, and hardware wallet integration.',
     href: '#wallet',
     features: ['Post-quantum signatures', 'Multi-chain support', 'Hardware wallet integration', 'Built-in staking'],
   },
@@ -84,7 +84,7 @@ const apps = [
   {
     icon: Search,
     name: 'Lux Explorer',
-    desc: 'Full-featured block explorer and portfolio analytics platform. Track transactions across all six chains, monitor validator performance, analyze DeFi positions, and access real-time network health metrics.',
+    desc: 'Full-featured block explorer and portfolio analytics platform. Track transactions across all fourteen chains, watch validator performance, read DeFi positions, and see network health as it happens.',
     href: 'https://explore.lux.network',
     features: ['Multi-chain tracking', 'Portfolio analytics', 'Validator metrics', 'Real-time data'],
   },
