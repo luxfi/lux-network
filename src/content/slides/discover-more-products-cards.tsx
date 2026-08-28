@@ -1,4 +1,5 @@
 import Link from 'next/link'
+import { css } from '@hanzo/ui'
 
 import { VideoBlockComponent } from '@/blocks/client-blocks'
 import type {
@@ -50,7 +51,7 @@ export default [
     content: [
       {blockType: 'element',
         element: <>
-          <Link href='https://lux.market/silver' target='_blank' className='border rounded-md hover:border-primary-lux h-[15rem] sm:h-[20rem] p-1'>
+          <Link href='https://lux.market/silver' target='_blank' className={'border rounded-md hover:border-primary-lux h-[15rem] sm:h-[20rem] p-1'} style={css('border rounded-md hover:border-primary-lux h-[15rem] sm:h-[20rem] p-1')}>
             <VideoBlockComponent block={silverVideo} className='h-full !my-0'/>
           </Link>
         </>
@@ -67,7 +68,7 @@ export default [
     content: [
       {blockType: 'element',
         element: <>
-          <Link href='https://lux.market/key' target='_blank' className='border rounded-md hover:border-primary-lux h-[15rem] sm:h-[20rem] p-1'>
+          <Link href='https://lux.market/key' target='_blank' className={'border rounded-md hover:border-primary-lux h-[15rem] sm:h-[20rem] p-1'} style={css('border rounded-md hover:border-primary-lux h-[15rem] sm:h-[20rem] p-1')}>
             <VideoBlockComponent block={keyVideo} className='h-full !my-0'/>
           </Link>
         </>
@@ -84,7 +85,7 @@ export default [
     content: [
       {blockType: 'element',
         element: <>
-          <Link href='https://lux.credit' target='_blank' className='border rounded-md hover:border-primary-lux h-[15rem] sm:h-[20rem] p-1 content-center'>
+          <Link href='https://lux.credit' target='_blank' className={'border rounded-md hover:border-primary-lux h-[15rem] sm:h-[20rem] p-1 content-center'} style={css('border rounded-md hover:border-primary-lux h-[15rem] sm:h-[20rem] p-1 content-center')}>
             <VideoBlockComponent block={cardVideo} className='h-full !my-0'/>
           </Link>
         </>

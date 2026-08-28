@@ -1,6 +1,6 @@
 import React from 'react'
 
-import { cn } from '@hanzo/ui/util'
+import { cn } from '@hanzo/ui'
 import { CheckoutPanel, Main } from '@luxfi/ui'
 
 // Crypto-native checkout — cart/order state is per-session, never a static

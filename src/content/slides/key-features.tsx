@@ -1,4 +1,5 @@
 import type { BulletCardsBlock } from '@hanzo/ui/blocks'
+import { Box } from '@hanzo/ui'
 
 export default {
   blockType: 'screenful',
@@ -47,7 +48,7 @@ export default {
         },
         {
           text: 'Network ID 96369 (Mainnet), 96368 (Testnet). Go 1.23.9+.',
-          icon: <p className='font-serif text-[24px] leading-[28px] font-bold h-[28px] pr-2'>ID</p>
+          icon: <Box tag="p" className='font-serif text-[24px] leading-[28px] font-bold h-[28px] pr-2'>ID</Box>
         },
       ]
     } as BulletCardsBlock

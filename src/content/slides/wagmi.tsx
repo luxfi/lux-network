@@ -5,6 +5,7 @@ import type {
 } from '@hanzo/ui/blocks'
 
 import { Button, Input } from '@hanzo/ui/primitives'
+import { Box, sx } from '@hanzo/ui'
 
 export default {
   blockType: 'screenful',
@@ -17,10 +18,10 @@ export default {
     } as EnhHeadingBlock,
     {blockType: 'space', level: 1},
     {blockType: 'element',
-      element: <form className="flex gap-2">
+      element: <Box tag="form" className="flex gap-2">
       <Input placeholder="Phone number" required />
-      <Button type='submit' formTarget='_self' className='px-6'>I WANT IN</Button>
-    </form>
+      <Button type='submit' formTarget='_self' {...sx('px-6')}>I WANT IN</Button>
+    </Box>
     } as ElementBlock
   ]],
 } as ScreenfulBlock

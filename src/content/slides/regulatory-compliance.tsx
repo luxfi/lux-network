@@ -3,6 +3,7 @@ import type {
   EnhHeadingBlock,
 } from '@hanzo/ui/blocks'
 import { COMMON_GRID_2_COL } from '@hanzo/ui/types'
+import { Box } from '@hanzo/ui'
 
 const bylines = [
   'Lux Network is regulatory compliant from day one thanks to cryptocurrency and blockchain regulatory frameworks designed to empower development in the Isle of Man, the sovereign nation where Lux is domiciled. Lux is committed to work directly with regulators and government officials to help educate and guide regulations around DeFi.',
@@ -25,7 +26,7 @@ export default {
           byline: { text: bylines[0], level: 6 },
         } as EnhHeadingBlock,
         {blockType: 'enh-heading',
-          icon: <p className='font-serif text-[24px] leading-[28px] font-bold  h-[28px] pr-2'>0%</p>,
+          icon: <Box tag="p" className='font-serif text-[24px] leading-[28px] font-bold  h-[28px] pr-2'>0%</Box>,
           iconSize: 40,
           preheading: { text: 'CAPITAL GAINS', level: 5, mb: 2 },
           heading: { text: 'TAX EFFICIENT', level: 1 },

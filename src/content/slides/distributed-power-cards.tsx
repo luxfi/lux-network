@@ -1,10 +1,11 @@
 import Link from 'next/link'
+import { Box } from '@hanzo/ui'
 import type {
   Block,
   CardBlock,
 } from '@hanzo/ui/blocks'
 
-const cardContent = (headline: string, byline: React.ReactNode) => <div><h5><span className='border-b-2 border-secondary'>{headline}</span></h5><p>{byline}</p></div>
+const cardContent = (headline: string, byline: React.ReactNode) => <div><h5><Box tag="span" className='border-b-2 border-secondary'>{headline}</Box></h5><p>{byline}</p></div>
 
 const headlines = [
   'Quasar Protocol',

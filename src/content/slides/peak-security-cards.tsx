@@ -1,9 +1,10 @@
+import { Box } from '@hanzo/ui'
 import type {
   Block,
   CardBlock,
 } from '@hanzo/ui/blocks'
 
-const underlineStrong = (text: string) => <strong className='border-b-2 border-secondary'>{text}</strong>
+const underlineStrong = (text: string) => <Box tag="strong" className='border-b-2 border-secondary'>{text}</Box>
 
 const headlines = [
   'POST-QUANTUM CRYPTOGRAPHY',

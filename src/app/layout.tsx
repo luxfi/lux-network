@@ -15,7 +15,6 @@ import './globals.css'
 
 import _metadata from '@/metadata'
 import siteDef from '@/site-def'
-import ShowBody from '@/components/ShowBody'
 
 export const metadata: Metadata = { ..._metadata }
 
@@ -25,7 +24,6 @@ const RootLayout: React.FC<PropsWithChildren> = ({
   children
 }) => (
   <RootLayoutCore siteDef={siteDef} chatbot>
-    <ShowBody />
     {children}
   </RootLayoutCore>
 )

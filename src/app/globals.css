@@ -3,11 +3,8 @@
  * Monochrome shadcn/ui design system with oklch colors
  */
 
-@tailwind base;
-@tailwind components;
-@tailwind utilities;
 
-@layer base {
+
   :root {
     /* Core semantic tokens - Light mode (monochrome) */
     --radius: 0.5rem;
@@ -145,35 +142,13 @@
     border-color: var(--border);
   }
 
-  body {
-    background-color: var(--background);
-    color: var(--foreground);
-  }
-}
-
-/*
- * Force the body visible.
- *
- * @luxfi/ui's RootLayout ships the <body> with an inline `style="display:none"`
- * and relies on the <Analytics/> client component's useEffect to flip it to
- * `flex` after mount (a FOUC guard). On this dynamic standalone build that flip
- * loses a hydration race (React reconciles the body's inline style back to the
- * SSR value), leaving the whole page invisible/black. The body is a flex column
- * by design (bodyClasses = 'flex flex-col min-h-full …'), so force it visible
- * deterministically. The dark theme is already painted via <html style="#000">,
- * so there is no flash.
- */
-body {
-  display: flex !important;
-}
-
 /* Hide Next.js error toasts in production */
 div.nextjs-toast-errors-parent[data-nextjs-toast="true"] {
   display: none;
 }
 
 .font-heading {
-  @apply uppercase;
+  text-transform: uppercase;
 }
 
 /* Hide scrollbar utility */

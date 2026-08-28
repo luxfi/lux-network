@@ -1,4 +1,13 @@
 import createMDX from '@next/mdx'
+import { createRequire } from 'node:module'
+import { dirname } from 'node:path'
+import { fileURLToPath } from 'node:url'
+
+// `@hanzo/ui/next` is a build-time CommonJS module — it takes and returns a
+// plain object rather than importing `next`, so it stays out of the type graph.
+// It declares the settings that let a cross-platform component graph resolve on
+// the web, for both bundlers at once.
+const withGui = createRequire(import.meta.url)('@hanzo/ui/next')
 
 /** @type {import('next').NextConfig} */
 const nextConfig = {
@@ -21,9 +30,6 @@ const nextConfig = {
   typescript: {
     ignoreBuildErrors: true,
   },
-  eslint: {
-    ignoreDuringBuilds: true,
-  },
   images: {
     remotePatterns: [
       { protocol: 'https', hostname: 'cdn.lux.network', pathname: '**' },
@@ -31,29 +37,10 @@ const nextConfig = {
     ],
   },
   pageExtensions: ['js', 'jsx', 'ts', 'tsx', 'md', 'mdx'],
-  // SVGR: import *.svg as React components (and *.svg?url as URLs). @luxfi/ui's
-  // footer (community column) imports an inline .svg as a component; without
-  // this loader the import resolves to an asset object and React throws
-  // "Element type is invalid … got: object" on hydration. Restored from the
-  // original full app's svgr.next.config.js. https://react-svgr.com/docs/next
-  webpack(config) {
-    const fileLoaderRule = config.module.rules.find((rule) => rule.test?.test?.('.svg'))
-    config.module.rules.push(
-      { ...fileLoaderRule, test: /\.svg$/i, resourceQuery: /url/ }, // *.svg?url -> URL
-      {
-        test: /\.svg$/i,
-        issuer: fileLoaderRule.issuer,
-        resourceQuery: { not: [...fileLoaderRule.resourceQuery.not, /url/] },
-        use: ['@svgr/webpack'],
-      },
-    )
-    fileLoaderRule.exclude = /\.svg$/i
-    return config
-  },
 }
 
 const withMDX = createMDX({
   extension: /\.mdx?$/,
 })
 
-export default withMDX(nextConfig)
+export default withMDX(withGui(nextConfig, dirname(fileURLToPath(import.meta.url))))

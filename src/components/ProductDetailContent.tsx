@@ -1,6 +1,7 @@
 'use client'
 
 import React from 'react'
+import { Box } from '@hanzo/ui'
 
 import { Header, Footer, Main } from '@luxfi/ui'
 
@@ -17,7 +18,7 @@ const ProductDetailContent: React.FC<{ block: ProductDetailBlock }> = ({ block }
     <Main className='md:flex-row md:gap-4 '>
       <ProductDetailBlockComponent block={block} />
     </Main>
-    <div className='border-t'></div>
+    <Box className='border-t'></Box>
     <Footer siteDef={siteDef} className='w-full pt-16 lg:mx-auto ' />
   </>
 )

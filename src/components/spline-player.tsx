@@ -1,6 +1,6 @@
 'use client'
 
-import { cn } from '@hanzo/ui/util'
+import { cn } from '@hanzo/ui'
 import Spline from '@splinetool/react-spline'
 
 const SplinePlayer: React.FC<{
