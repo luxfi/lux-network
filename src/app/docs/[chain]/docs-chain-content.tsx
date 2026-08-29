@@ -3,10 +3,8 @@
 import { useParams } from 'next/navigation'
 import { Box, css } from '@hanzo/ui'
 import Link from 'next/link'
-import {
-  ArrowLeft, ArrowRight, ArrowUpRight, ExternalLink, Github,
-  BookOpen, Terminal, Layers, Cpu, Shield, Zap, Globe, Code, Copy,
-} from 'lucide-react'
+import { ArrowLeft, ArrowRight, ArrowUpRight, ExternalLink, BookOpen, Terminal, Layers, Cpu, Shield, Zap, Globe, Code, Copy } from 'lucide-react'
+import { Github } from '@hanzo/ui/brands'
 import { chains, getChainById, coreChains, defiChains, privacyChains, infraChains } from '@/data/chains'
 import dynamic from 'next/dynamic'
 

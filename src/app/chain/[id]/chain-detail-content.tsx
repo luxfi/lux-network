@@ -3,10 +3,8 @@
 import { useParams } from 'next/navigation'
 import { Box, css } from '@hanzo/ui'
 import Link from 'next/link'
-import {
-  ArrowLeft, ArrowRight, ArrowUpRight, ExternalLink, Github,
-  BookOpen, Layers, Cpu, Shield, Zap, Globe, Code,
-} from 'lucide-react'
+import { ArrowLeft, ArrowRight, ArrowUpRight, ExternalLink, BookOpen, Layers, Cpu, Shield, Zap, Globe, Code } from 'lucide-react'
+import { Github } from '@hanzo/ui/brands'
 
 import { Header, Footer } from '@luxfi/ui'
 

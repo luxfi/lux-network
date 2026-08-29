@@ -1,16 +1,8 @@
 'use client'
 import Link from 'next/link'
 import { Box, css } from '@hanzo/ui'
-import {
-  Check, ArrowRight, Shield, Zap, Lock, Globe, Cpu, Database,
-  Download, Chrome, Smartphone, Wallet, CreditCard, Building,
-  Vote, PiggyBank, Store, Cloud, KeyRound, ExternalLink,
-  Eye, Users, Code, Layers,
-  ArrowUpRight, Repeat, Search, Network,
-  ShieldCheck, MonitorSmartphone, Banknote,
-  BrainCircuit, Link2, Fingerprint, BarChart3,
-  Radio, ScanEye, MessageSquare
-} from 'lucide-react'
+import { Check, ArrowRight, Shield, Zap, Lock, Globe, Cpu, Database, Download, Smartphone, Wallet, CreditCard, Building, Vote, PiggyBank, Store, Cloud, KeyRound, ExternalLink, Eye, Users, Code, Layers, ArrowUpRight, Repeat, Search, Network, ShieldCheck, MonitorSmartphone, Banknote, BrainCircuit, Link2, Fingerprint, BarChart3, Radio, ScanEye, MessageSquare } from 'lucide-react'
+import { Chrome } from '@hanzo/ui/brands'
 
 import { Header, Footer } from '@luxfi/ui'
 
