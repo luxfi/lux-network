@@ -19,12 +19,9 @@ const nextConfig = {
   output: 'standalone',
   reactStrictMode: true,
   transpilePackages: [
-    '@luxfi/ui',
     '@luxfi/data',
     '@luxfi/logo',
     '@luxfi/menu-icons',
-    '@hanzo/ui',
-    '@hanzo/commerce',
     '@hanzo/auth',
   ],
   typescript: {

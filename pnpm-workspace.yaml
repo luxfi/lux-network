@@ -3,12 +3,25 @@ allowBuilds:
 
 catalog:
   '@hanzo/auth': 2.8.0
-  '@hanzo/commerce': 7.7.2
+  '@hanzo/commerce': 7.7.5
   '@hanzo/design': 0.5.24
   '@hanzo/ui': 8.25.0
   '@luxfi/data': 1.1.1
   '@luxfi/logo': 1.0.10
-  '@luxfi/ui': 5.5.6
+  '@luxfi/ui': 8.2.9
+  '@types/node': 26.4.0
+  '@types/react': 19.2.18
+  '@types/react-dom': 19.2.5
+  'next': 16.3.3
+  'react': 19.2.8
+  'react-dom': 19.2.8
+  'typescript': 7.0.2
 
 onlyBuiltDependencies:
   - sharp
+
+overrides:
+  mobx: 7.0.3
+  mobx-react-lite: 5.0.3
+  react: '19.2.8'
+  react-dom: '19.2.8'
