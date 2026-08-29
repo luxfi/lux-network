@@ -5,9 +5,9 @@ import {
   Check, ArrowRight, Shield, Zap, Lock, Globe, Cpu, Database,
   Download, Chrome, Smartphone, Wallet, CreditCard, Building,
   Vote, PiggyBank, Store, Cloud, KeyRound, ExternalLink,
-  Eye, Scale, Landmark, Users, Code, Layers,
+  Eye, Users, Code, Layers,
   ArrowUpRight, Repeat, Search, Network,
-  ShieldCheck, MonitorSmartphone, Banknote, Gavel,
+  ShieldCheck, MonitorSmartphone, Banknote,
   BrainCircuit, Link2, Fingerprint, BarChart3,
   Radio, ScanEye, MessageSquare
 } from 'lucide-react'
@@ -42,8 +42,8 @@ const keyFeatures = [
   { icon: Banknote, title: 'Fiat Native', desc: 'On-ramp and off-ramp fiat currencies directly on-chain. Bank transfers, card payments, and stablecoin rails built into the protocol.' },
   { icon: Eye, title: 'Private DeFi', desc: 'Breakthrough privacy through ZChain and Fully Homomorphic Encryption. Trade, lend, and borrow without exposing your positions.' },
   { icon: ShieldCheck, title: '24/7 Security', desc: 'Round-the-clock monitoring with post-quantum cryptographic algorithms. NIST-approved lattice-based signatures protect every transaction.' },
-  { icon: Gavel, title: 'Regulated from Day 1', desc: 'Built within the Isle of Man regulatory framework. Full compliance infrastructure so institutions can participate with confidence.' },
-  { icon: Scale, title: '0% Capital Gains', desc: 'Operate from one of the world\'s most tax-efficient jurisdictions. Zero capital gains tax for qualifying digital assets.' },
+  { icon: Network, title: 'Cross-Chain', desc: 'Native bridges connect Lux to Ethereum and beyond, moving assets across chains without third-party custodians.' },
+  { icon: KeyRound, title: 'MPC Custody', desc: 'Enterprise multi-party-computation wallets with threshold signatures and no single point of failure, at mpc.lux.network.' },
   { icon: Users, title: 'DAO Governed', desc: 'Lux DAO puts protocol decisions in the hands of the community. Decentralized governance eliminates single points of failure.' },
 ]
 
@@ -229,7 +229,7 @@ export default function HomeContent() {
             <Box tag="p" className="text-sm text-accent font-semibold tracking-widest uppercase mb-3">Why Lux</Box>
             <Box tag="h2" className="text-3xl sm:text-4xl md:text-5xl font-bold mb-4">Everything You Need</Box>
             <Box tag="p" className="text-muted-foreground max-w-2xl mx-auto text-lg">
-              A multi-chain blockchain designed from the ground up for performance, privacy, and regulatory compliance.
+              A multi-chain blockchain designed from the ground up for performance, privacy, and scale.
             </Box>
           </Box>
 
@@ -502,10 +502,10 @@ console.log('Deployed:', hash)`}</code></Box>
         </Box>
       </Box>
 
-      {/* ══════════════════════ FIAT + COMPLIANCE ══════════════════════ */}
+      {/* ══════════════════════ FIAT ══════════════════════ */}
       <Box tag="section" className="py-20 sm:py-32 bg-muted/30">
         <Box className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <Box className="grid lg:grid-cols-2 gap-12 lg:gap-16">
+          <Box className="max-w-2xl mx-auto">
             {/* Fiat */}
             <div>
               <Box className="w-14 h-14 rounded-xl bg-primary/10 flex items-center justify-center mb-6">
@@ -517,25 +517,6 @@ console.log('Deployed:', hash)`}</code></Box>
               </Box>
               <Box tag="ul" className="space-y-3">
                 {['Bank transfer deposits', 'Credit & debit card payments', 'Stablecoin rails (USDC, USDT, DAI)', 'Multi-currency support (USD, EUR, GBP)'].map((item) => (
-                  <Box tag="li" key={item} className="flex items-center gap-3 text-sm">
-                    <Check style={css('h-4 w-4 text-foreground flex-shrink-0')} />
-                    <Box tag="span" className="text-foreground/90">{item}</Box>
-                  </Box>
-                ))}
-              </Box>
-            </div>
-
-            {/* Compliance */}
-            <div>
-              <Box className="w-14 h-14 rounded-xl bg-primary/10 flex items-center justify-center mb-6">
-                <Landmark style={css('h-7 w-7 text-primary')} />
-              </Box>
-              <Box tag="h2" className="text-2xl sm:text-3xl font-bold mb-4">Regulatory Compliance</Box>
-              <Box tag="p" className="text-muted-foreground text-lg mb-6 leading-relaxed">
-                Built within the Isle of Man regulatory framework from day one. Institutions, funds, and enterprises can participate with full confidence in a jurisdiction known for progressive digital asset legislation and 0% capital gains tax on qualifying assets.
-              </Box>
-              <Box tag="ul" className="space-y-3">
-                {['Isle of Man regulatory framework', '0% capital gains tax on digital assets', 'KYC/AML compliance infrastructure', 'Institutional-grade custody solutions'].map((item) => (
                   <Box tag="li" key={item} className="flex items-center gap-3 text-sm">
                     <Check style={css('h-4 w-4 text-foreground flex-shrink-0')} />
                     <Box tag="span" className="text-foreground/90">{item}</Box>

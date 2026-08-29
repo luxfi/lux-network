@@ -7,7 +7,6 @@ import nearInfiniteScale from './slides/near-infinite-scale'
 import finallyPrivateDefi from './slides/finally-private-defi'
 import peakSecurity from './slides/peak-security'
 import fiatAccepted from './slides/fiat-accepted'
-import regulatoryCompliance from './slides/regulatory-compliance'
 import distributedPower from './slides/distributed-power'
 import allInOnePlace from './slides/all-in-one-place'
 import buildOnLux from './slides/build-on-lux'
@@ -26,7 +25,6 @@ const tiles = [
   finallyPrivateDefi,
   peakSecurity,
   fiatAccepted,
-  regulatoryCompliance,
   distributedPower,
   allInOnePlace,
   buildOnLux,
