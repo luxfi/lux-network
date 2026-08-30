@@ -2,7 +2,7 @@ allowBuilds:
   sharp: true
 catalog:
   '@hanzo/auth': '2.8.0'
-  '@hanzo/commerce': '7.8.3'
+  '@hanzo/commerce': '7.9.0'
   '@hanzo/design': '0.5.24'
   '@hanzo/ui': '8.27.2'
   '@luxfi/data': '1.1.3'
